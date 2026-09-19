@@ -6,6 +6,11 @@
 <meta name="theme-color" content="#1D4E89">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Gromage">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Gromage">
+<meta name="description" content="Know what is in your kitchen, where it is, and what needs using this week.">
+<link rel="manifest" href="manifest.webmanifest">
 <title>Gromage — pantry &amp; expiry tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -641,6 +646,10 @@ footer a{ color:var(--ink-2); }
       <button id="set-add-place" class="btn btn-primary">Add</button>
     </div>
     <div id="set-places" style="margin-top:6px"></div>
+
+    <p class="group-title">Install on this phone</p>
+    <p class="hint" id="install-hint">Checking…</p>
+    <button id="btn-install" class="btn btn-primary btn-block hidden" style="margin-top:10px">Install app</button>
 
     <p class="group-title">Account</p>
     <div id="set-email" class="hint" style="margin-bottom:10px"></div>
@@ -2188,7 +2197,7 @@ function renderSettings() {
     : '<p class="hint">No places yet. Add Cabinet 1, Drawer 2, Fridge and so on.</p>';
 }
 
-function openSettings() { renderSettings(); show($("sheet-settings")); }
+function openSettings() { renderSettings(); refreshInstallUI(); show($("sheet-settings")); }
 
 async function refreshPlaces() {
   const { data } = await sb.from("locations").select("*").eq("household_id", home.id).order("sort_order");
@@ -2287,6 +2296,68 @@ function wireSettings() {
 /* =====================================================================
    13. STARTUP
    ===================================================================== */
+
+/* --- installing as an app -------------------------------------------
+   Android only offers a real install when a manifest and a registered
+   service worker are both present. Both live alongside index.html.
+   iOS has no install prompt at all, so we tell people where to look.
+   -------------------------------------------------------------------- */
+
+let installPrompt = null;
+
+function isStandalone() {
+  return window.matchMedia("(display-mode: standalone)").matches ||
+         window.navigator.standalone === true;
+}
+
+function refreshInstallUI() {
+  const btn = $("btn-install"), hint = $("install-hint");
+  if (!btn || !hint) return;
+
+  if (isStandalone()) {
+    hide(btn);
+    hint.textContent = "Already installed. You are running the app version.";
+  } else if (installPrompt) {
+    show(btn);
+    hint.textContent = "Put Gromage on your home screen so it opens full screen, without the browser bars.";
+  } else {
+    hide(btn);
+    hint.textContent = /iphone|ipad|ipod/i.test(navigator.userAgent)
+      ? "On iPhone: tap the share button in Safari, then Add to Home Screen."
+      : "Open your browser menu and choose Install app, or Add to home screen.";
+  }
+}
+
+function wireInstall() {
+  window.addEventListener("beforeinstallprompt", (ev) => {
+    ev.preventDefault();          // hold the prompt until they ask for it
+    installPrompt = ev;
+    refreshInstallUI();
+  });
+
+  window.addEventListener("appinstalled", () => {
+    installPrompt = null;
+    refreshInstallUI();
+    toast("Gromage installed");
+  });
+
+  const btn = $("btn-install");
+  if (btn) btn.addEventListener("click", async () => {
+    if (!installPrompt) return;
+    installPrompt.prompt();
+    try { await installPrompt.userChoice; } catch (e) { /* dismissed */ }
+    installPrompt = null;
+    refreshInstallUI();
+  });
+}
+
+function registerServiceWorker() {
+  if (!("serviceWorker" in navigator) || !window.isSecureContext) return;
+  navigator.serviceWorker.register("sw.js").catch(() => {
+    // Not fatal: the app works fine, it just cannot be installed.
+    console.warn("Service worker did not register; install will be unavailable.");
+  });
+}
 
 function applyTheme(mode) {
   document.documentElement.setAttribute("data-theme", mode);
@@ -2395,6 +2466,8 @@ async function start() {
   applyTheme(savedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
 
   wireDialog();
+  wireInstall();
+  registerServiceWorker();
   wireSetupScreen();
 
   const config = readConfig();
