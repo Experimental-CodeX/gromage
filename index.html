@@ -376,6 +376,8 @@ footer a{ color:var(--ink-2); }
     <h2 id="auth-title">Sign in</h2>
     <p class="hint" id="auth-sub">Everyone in your flat signs in with their own email and shares one pantry.</p>
     <div id="auth-msg" class="notice hidden"></div>
+    <label class="field hidden" id="auth-name-field"><span>Your name</span>
+      <input id="auth-name" class="input" type="text" autocomplete="name" placeholder="Priya"></label>
     <label class="field"><span>Email</span>
       <input id="auth-email" class="input" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com"></label>
     <label class="field"><span>Password</span>
@@ -385,9 +387,6 @@ footer a{ color:var(--ink-2); }
     <p class="switcher">
       <span id="auth-switch-text">New here?</span>
       <button id="auth-switch">Create an account</button>
-    </p>
-    <p class="switcher" style="margin-top:22px">
-      <button id="reset-config" style="font-weight:400;font-size:13px">Change Supabase project</button>
     </p>
   </div>
 </div>
@@ -636,6 +635,13 @@ footer a{ color:var(--ink-2); }
       <button id="set-share-code" class="btn">Share invite</button>
     </div>
 
+    <p class="group-title">Your name</p>
+    <p class="hint">What your flatmates see next to the things you add.</p>
+    <div class="row-2" style="grid-template-columns:2fr 1fr; margin-top:10px">
+      <input id="set-my-name" class="input" type="text" placeholder="Priya" autocomplete="name">
+      <button id="set-my-name-save" class="btn">Save</button>
+    </div>
+
     <p class="group-title">People in this home</p>
     <div id="set-members"></div>
 
@@ -654,7 +660,6 @@ footer a{ color:var(--ink-2); }
     <p class="group-title">Account</p>
     <div id="set-email" class="hint" style="margin-bottom:10px"></div>
     <button id="set-signout" class="btn btn-block">Sign out</button>
-    <button id="set-reset" class="btn btn-quiet btn-block" style="margin-top:6px">Change Supabase project</button>
   </div>
 </div>
 
@@ -983,11 +988,15 @@ function wireAuthScreen() {
     $("auth-switch-text").textContent = isUp ? "Already have an account?" : "New here?";
     $("auth-switch").textContent      = isUp ? "Sign in" : "Create an account";
     passwordBox.setAttribute("autocomplete", isUp ? "new-password" : "current-password");
+    $("auth-name-field").classList.toggle("hidden", !isUp);
     setNotice($("auth-msg"), "");
   });
 
   $("auth-submit").addEventListener("click", async () => {
     const mail = emailBox.value.trim(), pass = passwordBox.value;
+    const person = $("auth-name").value.trim();
+    if (authMode === "signup" && !person)
+      return setNotice($("auth-msg"), "Enter your name so your flatmates know who added what.", "bad");
     if (!mail || !pass)  return setNotice($("auth-msg"), "Enter your email and a password.", "bad");
     if (pass.length < 6) return setNotice($("auth-msg"), "Passwords need at least 6 characters.", "bad");
 
@@ -996,7 +1005,12 @@ function wireAuthScreen() {
     try {
       if (authMode === "signup") {
         const { data, error } = await sb.auth.signUp({
-          email: mail, password: pass, options: { emailRedirectTo: location.href.split("#")[0] }
+          email: mail,
+          password: pass,
+          options: {
+            data: { full_name: person },          // travels with the account
+            emailRedirectTo: location.href.split("#")[0]
+          }
         });
         if (error) throw error;
         if (data.session) { session = data.session; await afterSignIn(); }
@@ -1028,19 +1042,6 @@ function wireAuthScreen() {
   });
 
   passwordBox.addEventListener("keydown", (ev) => { if (ev.key === "Enter") $("auth-submit").click(); });
-  $("reset-config").addEventListener("click", forgetProject);
-}
-
-async function forgetProject() {
-  const ok = await askConfirm({
-    title: "Change Supabase project?",
-    message: "This device will forget the saved project URL and key. Your data stays in Supabase.",
-    confirmText: "Forget it", danger: true
-  });
-  if (!ok) return;
-  localStorage.removeItem(CONFIG_KEY);
-  localStorage.removeItem("dabba.config");
-  location.reload();
 }
 
 async function doSignOut() {
@@ -1058,7 +1059,11 @@ async function doSignOut() {
    ===================================================================== */
 
 function myName() {
-  const mail = (session && session.user && session.user.email) || "";
+  const user = session && session.user;
+  const given = user && user.user_metadata &&
+                (user.user_metadata.full_name || user.user_metadata.name);
+  if (given && String(given).trim()) return String(given).trim();
+  const mail = (user && user.email) || "";
   return mail.split("@")[0] || "Someone";
 }
 
@@ -2183,10 +2188,13 @@ function renderSettings() {
   $("set-code").textContent  = home ? home.invite_code : "------";
   $("set-email").textContent = "Signed in as " + ((session && session.user && session.user.email) || "");
 
+  const me = members.find((m) => m.user_id === session.user.id);
+  $("set-my-name").value = (me && me.display_name) || myName();
+
   $("set-members").innerHTML = members.length
     ? members.map((m) =>
         '<div class="rowline"><p>' + esc(m.display_name || "Flatmate") +
-        (m.user_id === session.user.id ? "<small>that's you</small>" : "") + "</p></div>").join("")
+        (m.user_id === session.user.id ? "<small>that&#39;s you</small>" : "") + "</p></div>").join("")
     : '<p class="hint">Just you so far.</p>';
 
   $("set-places").innerHTML = places.length
@@ -2219,6 +2227,29 @@ function wireSettings() {
       render();
       toast("Renamed");
     } catch (error) { toast(friendlyError(error)); }
+  });
+
+  $("set-my-name-save").addEventListener("click", async () => {
+    const name = $("set-my-name").value.trim();
+    if (!name) return toast("Type your name first");
+    try {
+      // Two places: the name shown in this home, and the name carried by
+      // the account itself so any future home starts with it too.
+      const { error } = await sb.from("household_members")
+        .update({ display_name: name })
+        .eq("household_id", home.id).eq("user_id", session.user.id);
+      if (error) throw error;
+      await sb.auth.updateUser({ data: { full_name: name } });
+      const { data } = await sb.auth.getSession();
+      if (data && data.session) session = data.session;
+      await loadEverything();
+      renderSettings();
+      toast("Saved");
+    } catch (error) { toast(friendlyError(error)); }
+  });
+
+  $("set-my-name").addEventListener("keydown", (ev) => {
+    if (ev.key === "Enter") { ev.preventDefault(); $("set-my-name-save").click(); }
   });
 
   $("set-copy-code").addEventListener("click", async () => {
@@ -2289,7 +2320,6 @@ function wireSettings() {
   });
 
   $("set-signout").addEventListener("click", doSignOut);
-  $("set-reset").addEventListener("click", forgetProject);
 }
 
 
