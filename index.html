@@ -302,6 +302,22 @@ select.input{
 }
 .date-readout button{ font-size:13.5px; font-weight:600; color:var(--brand); text-decoration:underline; text-underline-offset:3px; }
 
+/* install prompt */
+.install-card{
+  display:grid; grid-template-columns:auto 1fr; gap:12px 14px; align-items:center;
+  margin-top:14px; padding:14px; border-radius:var(--r-md);
+  background:var(--surface); border:1px solid var(--line); box-shadow:var(--shadow);
+}
+.install-logo{ width:42px; height:42px; border-radius:10px; }
+.install-words p{ font-size:15px; font-weight:600; letter-spacing:-.01em; }
+.install-words span{ font-size:13px; color:var(--ink-2); }
+.install-actions{ grid-column:1 / -1; display:grid; grid-template-columns:1fr auto; gap:8px; }
+.install-actions .btn{ min-height:42px; }
+@media (min-width:520px){
+  .install-card{ grid-template-columns:auto 1fr auto; }
+  .install-actions{ grid-column:auto; grid-template-columns:auto auto; }
+}
+
 /* item photos */
 .photo-row{ display:flex; gap:12px; align-items:center; }
 .photo-box{
@@ -443,6 +459,18 @@ footer a{ color:var(--ink-2); }
     </section>
 
     <div id="alert-banner" class="banner hidden"></div>
+    <div id="install-card" class="install-card hidden">
+      <svg viewBox="0 0 64 64" role="img" aria-label="Gromage" class="install-logo"><rect width="64" height="64" rx="15" fill="#1D4E89"/><path d="M50 32A18 18 0 1 1 43.57 18.21" fill="none" stroke="#fff" stroke-width="8"/><path d="M26.74 14.79A18 18 0 0 1 43.57 18.21" fill="none" stroke="#F2A24B" stroke-width="8"/><path d="M38 32H50" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/></svg>
+      <div class="install-words">
+        <p>Keep Gromage on your home screen</p>
+        <span>Opens full screen, one tap, no browser bars.</span>
+      </div>
+      <div class="install-actions">
+        <button id="install-yes" class="btn btn-sm btn-primary">Install</button>
+        <button id="install-no" class="btn btn-sm btn-quiet">Not now</button>
+      </div>
+    </div>
+
     <div id="global-error" class="notice notice-bad hidden" style="margin-top:14px"></div>
 
     <div class="searchbar">
@@ -809,6 +837,8 @@ function askConfirm(opts) {
     $("dlg-message").textContent = opts.message || "";
     $("dlg-message").classList.toggle("hidden", !opts.message);
     hide($("dlg-input"));
+    $("dlg-cancel").classList.toggle("hidden", !!opts.hideCancel);
+    el(".dlg-actions").style.gridTemplateColumns = opts.hideCancel ? "1fr" : "1fr 1fr";
     $("dlg-cancel").textContent = opts.cancelText || "Cancel";
     $("dlg-ok").textContent     = opts.confirmText || "Confirm";
     $("dlg-ok").classList.toggle("is-danger", !!opts.danger);
@@ -829,6 +859,8 @@ function askText(opts) {
     input.placeholder = opts.placeholder || "";
     input.inputMode = opts.numeric ? "numeric" : "text";
     show(input);
+    show($("dlg-cancel"));
+    el(".dlg-actions").style.gridTemplateColumns = "1fr 1fr";
     $("dlg-cancel").textContent = "Cancel";
     $("dlg-ok").textContent     = opts.confirmText || "Save";
     $("dlg-ok").classList.remove("is-danger");
@@ -1909,6 +1941,7 @@ function renderShopBadge() {
 }
 
 function render() {
+  maybeShowInstallCard();
   renderShelf();
   renderFilters();
   renderShopBadge();
@@ -2337,6 +2370,10 @@ function wireSettings() {
 
 let installPrompt = null;
 
+const INSTALL_DISMISSED = "gromage.installOffered";
+
+function isApplePhone() { return /iphone|ipad|ipod/i.test(navigator.userAgent); }
+
 function isStandalone() {
   return window.matchMedia("(display-mode: standalone)").matches ||
          window.navigator.standalone === true;
@@ -2349,8 +2386,9 @@ function refreshInstallUI() {
   if (isStandalone()) {
     hide(btn);
     hint.textContent = "Already installed. You are running the app version.";
-  } else if (installPrompt) {
+  } else if (installPrompt || isApplePhone()) {
     show(btn);
+    btn.textContent = installPrompt ? "Install app" : "Show me how";
     hint.textContent = "Put Gromage on your home screen so it opens full screen, without the browser bars.";
   } else {
     hide(btn);
@@ -2360,27 +2398,67 @@ function refreshInstallUI() {
   }
 }
 
+/** The card above the list. Offered once; "Not now" means never again,
+    and Settings still carries an Install button for later. */
+function maybeShowInstallCard() {
+  const card = $("install-card");
+  if (!card) return;
+
+  let dismissed = false;
+  try { dismissed = localStorage.getItem(INSTALL_DISMISSED) === "1"; } catch (e) { /* ignore */ }
+
+  // Android gives us a real prompt. iOS gives us nothing, so we explain.
+  const worthOffering = !isStandalone() && !dismissed && (installPrompt || isApplePhone());
+  card.classList.toggle("hidden", !worthOffering);
+  $("install-yes").textContent = installPrompt ? "Install" : "Show me how";
+}
+
+async function runInstall() {
+  if (installPrompt) {
+    installPrompt.prompt();
+    try { await installPrompt.userChoice; } catch (e) { /* dismissed */ }
+    installPrompt = null;
+    maybeShowInstallCard();
+    refreshInstallUI();
+    return;
+  }
+  // iPhone: Safari has no install prompt, so walk them through it.
+  await askConfirm({
+    title: "Add Gromage to your home screen",
+    message: "Tap the share button in Safari — the square with an arrow pointing up.\n\n" +
+             "Scroll down that list and tap Add to Home Screen, then Add.\n\n" +
+             "Gromage will open full screen after that, like any other app.",
+    confirmText: "Got it", hideCancel: true
+  });
+}
+
 function wireInstall() {
   window.addEventListener("beforeinstallprompt", (ev) => {
     ev.preventDefault();          // hold the prompt until they ask for it
     installPrompt = ev;
+    maybeShowInstallCard();
     refreshInstallUI();
   });
 
   window.addEventListener("appinstalled", () => {
     installPrompt = null;
+    try { localStorage.setItem(INSTALL_DISMISSED, "1"); } catch (e) { /* ignore */ }
+    maybeShowInstallCard();
     refreshInstallUI();
     toast("Gromage installed");
   });
 
-  const btn = $("btn-install");
-  if (btn) btn.addEventListener("click", async () => {
-    if (!installPrompt) return;
-    installPrompt.prompt();
-    try { await installPrompt.userChoice; } catch (e) { /* dismissed */ }
-    installPrompt = null;
-    refreshInstallUI();
+  const card = $("install-yes");
+  if (card) card.addEventListener("click", runInstall);
+
+  const no = $("install-no");
+  if (no) no.addEventListener("click", () => {
+    try { localStorage.setItem(INSTALL_DISMISSED, "1"); } catch (e) { /* ignore */ }
+    hide($("install-card"));
   });
+
+  const btn = $("btn-install");
+  if (btn) btn.addEventListener("click", runInstall);
 }
 
 function registerServiceWorker() {
