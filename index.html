@@ -255,7 +255,10 @@ select.input{
   display:flex; align-items:center; justify-content:space-between; padding:12px 0 14px;
 }
 .sheet-head h2{ font-size:19px; font-weight:700; letter-spacing:-.02em; font-stretch:90%; }
-.sheet-head button{ font-size:15px; font-weight:600; color:var(--ink-2); padding:8px; }
+.sheet-head > button:not(.btn){ font-size:15px; font-weight:600; color:var(--ink-2); padding:8px; }
+#sheet-form .sheet-head{ gap:10px; border-bottom:1px solid var(--line); margin-bottom:16px; }
+#sheet-form .sheet-head h2{ flex:1; text-align:center; font-size:17px; }
+#sheet-form .sheet-head .btn{ min-height:40px; padding:0 15px; flex:none; }
 
 /* custom confirm / prompt — replaces every native popup */
 #dialog{ z-index:90; align-items:center; padding:16px; }
@@ -271,7 +274,7 @@ select.input{
 #dlg-ok.is-danger{ background:var(--red); color:#fff; }
 
 /* camera */
-#reader{ width:100%; border-radius:var(--r-md); overflow:hidden; background:#000; min-height:230px; }
+#reader{ width:100%; border-radius:var(--r-md); overflow:hidden; background:#000; min-height:300px; }
 #reader video{ width:100% !important; border-radius:var(--r-md); }
 .scan-tip{ font-size:14px; color:var(--ink-2); margin:12px 0; text-align:center; }
 .toggle{
@@ -293,6 +296,19 @@ select.input{
   display:flex; align-items:center; justify-content:space-between; gap:10px;
 }
 .date-readout button{ font-size:13.5px; font-weight:600; color:var(--brand); text-decoration:underline; text-underline-offset:3px; }
+
+/* item photos */
+.photo-row{ display:flex; gap:12px; align-items:center; }
+.photo-box{
+  width:76px; height:76px; flex:none; border-radius:var(--r-md); overflow:hidden;
+  background:var(--surface-2); border:1px solid var(--line);
+  display:grid; place-items:center; font-size:11px; color:var(--ink-2); text-align:center;
+}
+.photo-box img{ width:100%; height:100%; object-fit:cover; }
+.photo-btns{ display:flex; flex-direction:column; gap:8px; }
+.item-photo{ width:58px; height:58px; flex:none; border-radius:10px; object-fit:cover; border:1px solid var(--line); cursor:zoom-in; }
+#photo-view{ z-index:88; align-items:center; padding:20px; }
+#photo-view img{ max-width:100%; max-height:82svh; border-radius:var(--r-md); display:block; }
 
 /* toast */
 .toast{
@@ -469,8 +485,9 @@ footer a{ color:var(--ink-2); }
 <div id="sheet-form" class="sheet hidden" role="dialog" aria-modal="true" aria-labelledby="form-title">
   <div class="sheet-panel">
     <div class="sheet-head">
+      <button data-close="sheet-form">Cancel</button>
       <h2 id="form-title">Add an item</h2>
-      <button data-close="sheet-form">Close</button>
+      <button id="f-save" class="btn btn-primary btn-sm">Save item</button>
     </div>
 
     <div id="dupe-warning" class="notice notice-bad hidden"></div>
@@ -479,6 +496,19 @@ footer a{ color:var(--ink-2); }
 
     <label class="field"><span>Name</span>
       <input id="f-name" class="input" type="text" placeholder="Turmeric powder" autocomplete="off" enterkeyhint="next"></label>
+
+    <div class="field">
+      <span>Photo</span>
+      <div class="photo-row">
+        <div class="photo-box" id="f-photo-box"><span>No photo</span></div>
+        <div class="photo-btns">
+          <button type="button" id="f-photo-take" class="btn btn-sm">Take a photo</button>
+          <button type="button" id="f-photo-clear" class="btn btn-sm btn-danger hidden">Remove</button>
+        </div>
+      </div>
+      <input type="file" id="f-photo-file" accept="image/*" capture="environment" class="hidden">
+      <input type="hidden" id="f-photo">
+    </div>
 
     <!-- fast expiry entry: shelf-life shortcuts, then three quick dropdowns -->
     <div class="field">
@@ -521,7 +551,6 @@ footer a{ color:var(--ink-2); }
     <label class="field"><span>Barcode</span>
       <input id="f-barcode" class="input" type="text" inputmode="numeric" placeholder="Empty unless scanned" autocomplete="off"></label>
 
-    <button id="f-save" class="btn btn-primary btn-block">Save item</button>
     <button id="f-delete" class="btn btn-quiet btn-danger btn-block hidden" style="margin-top:8px">Delete this item</button>
   </div>
 </div>
@@ -544,8 +573,9 @@ footer a{ color:var(--ink-2); }
 
     <div id="scan-error" class="notice notice-bad hidden"></div>
     <div id="reader-holder"><div id="reader"></div></div>
-    <p class="scan-tip" id="scan-tip">Hold the barcode 10–15 cm away in good light. Keep the whole barcode inside the box.</p>
+    <p class="scan-tip" id="scan-tip">Fill the box with the barcode and hold still for a second. If the kitchen is dim, that is usually the problem.</p>
 
+    <button id="scan-torch" class="btn btn-block hidden" style="margin-bottom:10px">Turn the light on</button>
     <div class="row-2">
       <button id="scan-photo" class="btn">Use a photo</button>
       <button id="scan-manual" class="btn">Type the number</button>
@@ -617,6 +647,11 @@ footer a{ color:var(--ink-2); }
     <button id="set-signout" class="btn btn-block">Sign out</button>
     <button id="set-reset" class="btn btn-quiet btn-block" style="margin-top:6px">Change Supabase project</button>
   </div>
+</div>
+
+<!-- full-size photo viewer -->
+<div id="photo-view" class="sheet hidden" role="dialog" aria-modal="true" aria-label="Item photo">
+  <img id="photo-view-img" alt="Item photo">
 </div>
 
 <!-- ===================================================================
@@ -1234,6 +1269,7 @@ let scanArmedAt   = 0;      // ignore anything decoded in the first moment
 let lastCode      = "";     // and ignore the same code twice in a row
 let lastCodeAt    = 0;
 let cameraStarted = false;
+let torchOn       = false;
 
 function barcodeFormats() {
   const F = window.Html5QrcodeSupportedFormats;
@@ -1241,13 +1277,18 @@ function barcodeFormats() {
   return [F.EAN_13, F.EAN_8, F.UPC_A, F.UPC_E, F.CODE_128, F.CODE_39, F.ITF];
 }
 
-function scanConfig() {
-  return {
-    fps: 10,
-    // A wide, short box suits grocery barcodes far better than a square.
+function scanConfig(extra) {
+  // iPhone has no hardware barcode reader, so Safari decodes every frame
+  // in JavaScript. Two things make that feel fast instead of slow:
+  //   fps  — more frames examined per second;
+  //   a TALL scan box — the decoder samples horizontal lines across the
+  //          box, so a taller box crosses the barcode on its own and you
+  //          stop having to slide the phone up and down to find it.
+  const config = {
+    fps: 24,
     qrbox: (w, h) => ({
-      width:  Math.max(200, Math.floor(Math.min(w, 560) * 0.9)),
-      height: Math.max(120, Math.floor(Math.min(h, 420) * 0.45))
+      width:  Math.max(220, Math.floor(Math.min(w, 620) * 0.94)),
+      height: Math.max(210, Math.floor(Math.min(h, 520) * 0.70))
     }),
     disableFlip: true,
     // Android Chrome has a hardware barcode reader; use it when present.
@@ -1255,6 +1296,30 @@ function scanConfig() {
     // Deliberately no aspectRatio. iOS Safari rejects that constraint
     // and then refuses to start the camera at all.
   };
+  return Object.assign(config, extra || {});
+}
+
+/** Show the light button only if this camera really has one. */
+function setupTorch() {
+  const btn = $("scan-torch");
+  torchOn = false;
+  btn.textContent = "Turn the light on";
+  hide(btn);
+  try {
+    const caps = scanner.getRunningTrackCapabilities();
+    if (caps && caps.torch) show(btn);
+  } catch (e) { /* not supported on this phone */ }
+}
+
+async function toggleTorch() {
+  try {
+    torchOn = !torchOn;
+    await scanner.applyVideoConstraints({ advanced: [{ torch: torchOn }] });
+    $("scan-torch").textContent = torchOn ? "Turn the light off" : "Turn the light on";
+  } catch (e) {
+    torchOn = false;
+    toast("This camera has no light");
+  }
 }
 
 /**
@@ -1282,17 +1347,37 @@ async function startCamera() {
   const rearId = rear ? rear.id : null;
   const anyId  = cameras.length ? cameras[cameras.length - 1].id : null;
 
+  // Resolution matters more than anything else. The default stream is
+  // 640x480, which simply does not carry enough pixels to resolve the
+  // thin bars of an EAN-13 held 15 cm away. Ask for a sharp one first
+  // and fall back only if the phone refuses.
+  const sharp = (base, w, hgt) => ({ videoConstraints: Object.assign({}, base, {
+    width:  { ideal: w },
+    height: { ideal: hgt },
+    frameRate: { ideal: 30 },
+    focusMode: "continuous"
+  })});
+
   const attempts = [];
-  if (rearId) attempts.push(rearId);
-  attempts.push({ facingMode: { exact: "environment" } });
-  attempts.push({ facingMode: "environment" });
-  if (anyId && anyId !== rearId) attempts.push(anyId);
-  attempts.push({ facingMode: "user" });
+  if (rearId) {
+    const byId = { deviceId: { exact: rearId } };
+    attempts.push([rearId, sharp(byId, 1920, 1080)]);
+    attempts.push([rearId, sharp(byId, 1280, 720)]);
+    attempts.push([rearId, null]);
+  }
+  const envExact = { facingMode: { exact: "environment" } };
+  attempts.push([envExact, sharp(envExact, 1920, 1080)]);
+  attempts.push([envExact, sharp(envExact, 1280, 720)]);
+  attempts.push([envExact, null]);
+  attempts.push([{ facingMode: "environment" }, null]);
+  if (anyId && anyId !== rearId) attempts.push([anyId, null]);
+  attempts.push([{ facingMode: "user" }, null]);
 
   let lastError = null;
-  for (const target of attempts) {
+  for (const attempt of attempts) {
     try {
-      await scanner.start(target, scanConfig(), onScanSuccess, function () {});
+      await scanner.start(attempt[0], scanConfig(attempt[1]), onScanSuccess, function () {});
+      setupTorch();
       return;
     } catch (error) {
       lastError = error;
@@ -1479,6 +1564,7 @@ function wireScanner() {
     await handleBarcode(clean);
   });
 
+  $("scan-torch").addEventListener("click", toggleTorch);
   $("scan-photo").addEventListener("click", () => $("scan-file").click());
 
   $("scan-file").addEventListener("change", async (ev) => {
@@ -1496,6 +1582,77 @@ function wireScanner() {
   });
 }
 
+
+/* --- item photos ----------------------------------------------------
+   Kept small on purpose. The picture is shrunk to 520 pixels on its
+   longest side and saved straight into the item's row, so it is covered
+   by exactly the same privacy rules as everything else and there is no
+   separate file storage to set up.
+   -------------------------------------------------------------------- */
+
+function shrinkPhoto(file, maxSide, quality) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error("unreadable"));
+    reader.onload = () => {
+      const img = new Image();
+      img.onerror = () => reject(new Error("unreadable"));
+      img.onload = () => {
+        const scale = Math.min(1, maxSide / Math.max(img.width, img.height));
+        const canvas = document.createElement("canvas");
+        canvas.width  = Math.max(1, Math.round(img.width  * scale));
+        canvas.height = Math.max(1, Math.round(img.height * scale));
+        canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
+        resolve(canvas.toDataURL("image/jpeg", quality));
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function setFormPhoto(dataUrl) {
+  $("f-photo").value = dataUrl || "";
+  const box = $("f-photo-box");
+  box.innerHTML = "";
+  if (dataUrl) {
+    const img = document.createElement("img");
+    img.alt = "Item photo";
+    img.src = dataUrl;                 // set as a property, never as markup
+    box.appendChild(img);
+    show($("f-photo-clear"));
+    $("f-photo-take").textContent = "Retake";
+  } else {
+    const span = document.createElement("span");
+    span.textContent = "No photo";
+    box.appendChild(span);
+    hide($("f-photo-clear"));
+    $("f-photo-take").textContent = "Take a photo";
+  }
+}
+
+function openPhoto(src) {
+  $("photo-view-img").src = src;
+  show($("photo-view"));
+}
+
+function wirePhoto() {
+  $("f-photo-take").addEventListener("click", () => $("f-photo-file").click());
+  $("f-photo-clear").addEventListener("click", () => setFormPhoto(""));
+  $("f-photo-file").addEventListener("change", async (ev) => {
+    const file = ev.target.files && ev.target.files[0];
+    ev.target.value = "";
+    if (!file) return;
+    $("f-photo-take").textContent = "Working…";
+    try {
+      setFormPhoto(await shrinkPhoto(file, 520, 0.55));
+    } catch (error) {
+      setFormPhoto($("f-photo").value);
+      setNotice($("form-error"), "That photo could not be used. Try taking it again.", "bad");
+    }
+  });
+  $("photo-view").addEventListener("click", () => hide($("photo-view")));
+}
 
 /* =====================================================================
    8. DATES — the fast expiry picker
@@ -1698,7 +1855,12 @@ function itemMarkup(it) {
   if (it.quantity) tags.push('<span class="tag">' + esc(it.quantity) + "</span>");
   const date = it.expiry_date ? " <em>" + esc(prettyDate(it.expiry_date)) + "</em>" : "";
 
+  const thumb = it.photo
+    ? '<img class="item-photo" data-photo="' + esc(it.id) + '" alt="" src="' + esc(it.photo) + '">'
+    : "";
+
   return '<li class="item' + (it.is_used ? " is-used" : "") + '" data-status="' + s + '">' +
+    thumb +
     '<div class="item-body">' +
       '<p class="item-name">' + esc(it.name) + "</p>" +
       '<span class="status-line" data-status="' + s + '">' + esc(statusText(it)) + date + "</span>" +
@@ -1776,6 +1938,7 @@ function openForm(item) {
   $("f-quantity").value = item ? item.quantity || "" : "";
   $("f-notes").value    = item ? item.notes || "" : "";
   $("f-barcode").value  = item ? item.barcode || "" : "";
+  setFormPhoto(item ? item.photo || "" : "");
 
   renderLocationSelect(item ? item.location : "");
   setDateFromISO(item && item.expiry_date ? String(item.expiry_date).slice(0, 10) : "");
@@ -1808,6 +1971,7 @@ async function submitForm() {
     expiry_date: $("f-expiry").value || null,
     notes:       $("f-notes").value.trim() || null,
     barcode:     $("f-barcode").value.trim() || null,
+    photo:       $("f-photo").value || null,
     is_used:     false
   };
 
@@ -1815,7 +1979,7 @@ async function submitForm() {
   $("f-save").textContent = "Saving…";
   try {
     await saveItem(payload);
-    if (payload.barcode) await rememberProduct(payload);
+    if (payload.barcode) await rememberProduct(payload);   // name and size only
 
     const continuous = $("scan-continuous").checked;
     closeForm();
@@ -1852,6 +2016,13 @@ async function addPlaceInline() {
 }
 
 async function onListClick(ev) {
+  const thumb = ev.target.closest("[data-photo]");
+  if (thumb) {
+    const withPhoto = items.find((i) => i.id === thumb.dataset.photo);
+    if (withPhoto && withPhoto.photo) openPhoto(withPhoto.photo);
+    return;
+  }
+
   const btn = ev.target.closest("button[data-act]");
   if (!btn) return;
   const item = items.find((i) => i.id === btn.dataset.id);
@@ -2179,6 +2350,7 @@ function wireApp() {
   document.addEventListener("keydown", (ev) => {
     if (ev.key !== "Escape") return;
     if (!$("dialog").classList.contains("hidden")) closeDialog(null);
+    else if (!$("photo-view").classList.contains("hidden")) hide($("photo-view"));
     else if (!$("sheet-scan").classList.contains("hidden")) closeScanner();
     else if (!$("sheet-form").classList.contains("hidden")) closeForm();
     else { hide($("sheet-shop")); hide($("sheet-settings")); }
@@ -2190,6 +2362,7 @@ function wireApp() {
   });
 
   wireScanner();
+  wirePhoto();
   wireShopping();
   wireSettings();
 
