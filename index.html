@@ -5,52 +5,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#1D4E89">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Dabba">
-<title>Dabba — pantry &amp; expiry tracker</title>
+<meta name="apple-mobile-web-app-title" content="Gromage">
+<title>Gromage — pantry &amp; expiry tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..700&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231D4E89'/><rect x='22' y='30' width='56' height='44' rx='6' fill='none' stroke='white' stroke-width='7'/><path d='M38 30v-8h24v8' fill='none' stroke='white' stroke-width='7'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='15' fill='%231D4E89'/><path d='M50 32A18 18 0 1 1 43.57 18.21' fill='none' stroke='white' stroke-width='8'/><path d='M26.74 14.79A18 18 0 0 1 43.57 18.21' fill='none' stroke='%23F2A24B' stroke-width='8'/><path d='M38 32H50' fill='none' stroke='white' stroke-width='8' stroke-linecap='round'/></svg>">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">">
 
 <style>
 /* =====================================================================
    1. DESIGN TOKENS
-   The interface chrome stays neutral steel + enamel blue on purpose,
-   so the four expiry colours are the only saturated thing on screen.
+   The chrome stays neutral steel + enamel blue on purpose, so the four
+   expiry colours are the only saturated thing on screen.
    ===================================================================== */
 :root{
-  --paper:#ECEFEC;      /* page background   */
-  --surface:#FFFFFF;    /* cards, rows       */
-  --surface-2:#F4F6F3;  /* inputs, chips     */
-  --line:#D6DBD6;       /* hairlines         */
-  --ink:#1B2320;        /* primary text      */
-  --ink-2:#5E6C67;      /* secondary text    */
-  --brand:#1D4E89;      /* actions           */
-  --brand-soft:#E4EDF8;
-  --on-brand:#FFFFFF;
-
+  --paper:#ECEFEC; --surface:#FFFFFF; --surface-2:#F4F6F3; --line:#D6DBD6;
+  --ink:#1B2320; --ink-2:#5E6C67;
+  --brand:#1D4E89; --brand-soft:#E4EDF8; --on-brand:#FFFFFF;
   --red:#C0271F;    --red-bg:#FBE7E5;
   --orange:#C25A00; --orange-bg:#FCECDD;
   --amber:#96700A;  --amber-bg:#FAF1D6;
   --green:#2C6E33;  --green-bg:#E4F0E2;
   --grey:#6B7973;   --grey-bg:#EDF0EE;
-
   --r-sm:8px; --r-md:14px; --r-lg:22px;
   --shadow:0 1px 2px rgba(27,35,32,.06), 0 8px 24px -14px rgba(27,35,32,.28);
   --safe-b:env(safe-area-inset-bottom, 0px);
   --safe-t:env(safe-area-inset-top, 0px);
 }
 [data-theme="dark"]{
-  --paper:#111618;
-  --surface:#1A2124;
-  --surface-2:#232B2E;
-  --line:#2E393D;
-  --ink:#E8EDEB;
-  --ink-2:#98A6A2;
-  --brand:#6AA6E0;
-  --brand-soft:#1B2C3D;
-  --on-brand:#0C1519;
-
+  --paper:#111618; --surface:#1A2124; --surface-2:#232B2E; --line:#2E393D;
+  --ink:#E8EDEB; --ink-2:#98A6A2;
+  --brand:#6AA6E0; --brand-soft:#1B2C3D; --on-brand:#0C1519;
   --red:#F08A80;    --red-bg:#3A1F1C;
   --orange:#F0A45C; --orange-bg:#3A2A18;
   --amber:#DCC069;  --amber-bg:#342E19;
@@ -65,15 +51,10 @@
 *,*::before,*::after{ box-sizing:border-box; }
 html{ -webkit-text-size-adjust:100%; }
 body{
-  margin:0;
-  background:var(--paper);
-  color:var(--ink);
+  margin:0; background:var(--paper); color:var(--ink);
   font-family:"Archivo","Helvetica Neue",Arial,sans-serif;
-  font-size:16px;
-  line-height:1.45;
-  font-variant-numeric:tabular-nums;
-  padding-top:var(--safe-t);
-  -webkit-font-smoothing:antialiased;
+  font-size:16px; line-height:1.45; font-variant-numeric:tabular-nums;
+  padding-top:var(--safe-t); -webkit-font-smoothing:antialiased;
 }
 h1,h2,h3,p,ul,ol,figure{ margin:0; }
 ul{ list-style:none; padding:0; }
@@ -81,9 +62,8 @@ button,input,select,textarea{ font:inherit; color:inherit; }
 button{ cursor:pointer; background:none; border:none; }
 :focus-visible{ outline:3px solid var(--brand); outline-offset:2px; border-radius:4px; }
 .hidden{ display:none !important; }
-.sr{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+input[type="search"]::-webkit-search-cancel-button{ -webkit-appearance:none; appearance:none; }
 @media (prefers-reduced-motion:reduce){ *{ animation:none !important; transition:none !important; } }
-
 .wrap{ width:100%; max-width:660px; margin:0 auto; padding:0 16px; }
 
 /* =====================================================================
@@ -91,14 +71,13 @@ button{ cursor:pointer; background:none; border:none; }
    ===================================================================== */
 .btn{
   display:inline-flex; align-items:center; justify-content:center; gap:8px;
-  min-height:50px; padding:0 18px;
-  border-radius:var(--r-md);
+  min-height:50px; padding:0 18px; border-radius:var(--r-md);
   background:var(--surface-2); color:var(--ink);
-  font-weight:600; letter-spacing:-.01em;
-  border:1px solid var(--line);
+  font-weight:600; letter-spacing:-.01em; border:1px solid var(--line);
   transition:transform .08s ease;
 }
 .btn:active{ transform:scale(.98); }
+.btn:disabled{ opacity:.55; }
 .btn-primary{ background:var(--brand); color:var(--on-brand); border-color:transparent; }
 .btn-quiet{ background:transparent; border-color:transparent; color:var(--ink-2); font-weight:500; }
 .btn-danger{ color:var(--red); }
@@ -110,80 +89,79 @@ button{ cursor:pointer; background:none; border:none; }
 .input{
   width:100%; min-height:50px; padding:12px 14px;
   background:var(--surface-2); color:var(--ink);
-  border:1px solid var(--line); border-radius:var(--r-md);
-  appearance:none;
+  border:1px solid var(--line); border-radius:var(--r-md); appearance:none;
 }
 textarea.input{ min-height:80px; resize:vertical; }
 select.input{
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%235E6C67' stroke-width='1.6'/%3E%3C/svg%3E");
-  background-repeat:no-repeat; background-position:right 14px center; background-size:12px;
-  padding-right:38px;
+  background-repeat:no-repeat; background-position:right 14px center; background-size:12px; padding-right:38px;
 }
 .input::placeholder{ color:var(--ink-2); opacity:.7; }
 .row-2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-.hint{ font-size:13px; color:var(--ink-2); }
-
+.hint{ font-size:13.5px; color:var(--ink-2); }
 .notice{ padding:12px 14px; border-radius:var(--r-md); font-size:14.5px; margin-bottom:14px; }
 .notice-bad{ background:var(--red-bg); color:var(--red); }
 .notice-good{ background:var(--green-bg); color:var(--green); }
 .notice-info{ background:var(--brand-soft); color:var(--brand); }
 
 /* =====================================================================
-   4. SCREENS: setup + sign in
+   4. SCREENS: setup, sign in, choose a home
    ===================================================================== */
 .centered{ min-height:100svh; display:grid; place-items:center; padding:24px 16px calc(24px + var(--safe-b)); }
 .card{
-  width:100%; max-width:420px;
-  background:var(--surface); border:1px solid var(--line);
+  width:100%; max-width:440px; background:var(--surface); border:1px solid var(--line);
   border-radius:var(--r-lg); padding:26px; box-shadow:var(--shadow);
 }
-.brandmark{ display:flex; align-items:baseline; gap:10px; margin-bottom:6px; }
-.brandmark b{ font-size:30px; font-weight:700; font-stretch:88%; letter-spacing:-.03em; }
-.brandmark span{ font-size:14px; color:var(--ink-2); }
+.brandmark{ display:flex; align-items:center; gap:12px; margin-bottom:6px; }
+.logo{ width:46px; height:46px; flex:none; border-radius:11px; }
+.brandtext{ display:flex; flex-direction:column; line-height:1.14; min-width:0; }
+.brandtext b{ font-size:27px; font-weight:700; font-stretch:88%; letter-spacing:-.032em; }
+.brandtext span{ font-size:13px; color:var(--ink-2); }
 .card h2{ font-size:20px; font-weight:600; letter-spacing:-.02em; margin:18px 0 4px; }
 .card > .hint{ margin-bottom:18px; }
 .switcher{ text-align:center; margin-top:16px; font-size:14.5px; color:var(--ink-2); }
 .switcher button{ color:var(--brand); font-weight:600; text-decoration:underline; text-underline-offset:3px; }
 .setup-steps{ font-size:14px; color:var(--ink-2); margin:14px 0 18px; padding-left:18px; list-style:decimal; }
 .setup-steps li{ margin-bottom:5px; }
+.split{ display:flex; align-items:center; gap:12px; margin:20px 0; color:var(--ink-2); font-size:13px; }
+.split::before,.split::after{ content:""; flex:1; height:1px; background:var(--line); }
 
 /* =====================================================================
-   5. APP HEADER + SHELF BAR (the one loud element)
+   5. APP HEADER + SHELF BAR
    ===================================================================== */
 .topbar{
-  position:sticky; top:0; z-index:40;
-  background:var(--paper);
+  position:sticky; top:0; z-index:40; background:var(--paper);
   padding-top:calc(10px + var(--safe-t)); margin-top:calc(-1 * var(--safe-t));
   border-bottom:1px solid var(--line);
 }
-.topbar-inner{ display:flex; align-items:center; gap:10px; padding-bottom:10px; }
-.topbar-inner .brandmark{ margin:0; flex:1; min-width:0; }
-.topbar-inner .brandmark b{ font-size:22px; }
+.topbar-inner{ display:flex; align-items:center; gap:8px; padding-bottom:10px; }
+.topbar-inner .brandmark{ margin:0; flex:1; min-width:0; gap:9px; }
+.topbar-inner .logo{ width:33px; height:33px; border-radius:8px; }
+.topbar-inner .brandtext b{ font-size:19px; }
+.topbar-inner .brandtext span{ font-size:12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .icon-btn{
-  width:42px; height:42px; display:grid; place-items:center;
-  border-radius:12px; border:1px solid var(--line); background:var(--surface);
-  flex:none;
+  width:42px; height:42px; display:grid; place-items:center; position:relative;
+  border-radius:12px; border:1px solid var(--line); background:var(--surface); flex:none;
 }
 .icon-btn svg{ width:20px; height:20px; }
+.badge{
+  position:absolute; top:-5px; right:-5px; min-width:19px; height:19px; padding:0 5px;
+  border-radius:99px; background:var(--brand); color:var(--on-brand);
+  font-size:11px; font-weight:700; display:grid; place-items:center;
+}
 
 .shelf{ padding:16px 0 4px; }
-.shelf-bar{
-  display:flex; height:12px; border-radius:99px; overflow:hidden;
-  background:var(--grey-bg); gap:2px;
-}
+.shelf-bar{ display:flex; height:12px; border-radius:99px; overflow:hidden; background:var(--grey-bg); gap:2px; }
 .shelf-bar i{ display:block; min-width:3px; }
-.shelf-legend{
-  display:flex; flex-wrap:wrap; gap:6px 16px; margin-top:12px;
-}
+.shelf-legend{ display:flex; flex-wrap:wrap; gap:6px 16px; margin-top:12px; }
 .shelf-legend div{ display:flex; align-items:baseline; gap:6px; font-size:13.5px; color:var(--ink-2); }
 .shelf-legend b{ font-size:19px; font-weight:700; font-stretch:88%; color:var(--ink); letter-spacing:-.02em; }
 .dot{ width:9px; height:9px; border-radius:99px; align-self:center; flex:none; }
 
 .banner{
-  display:flex; gap:12px; align-items:flex-start;
-  padding:14px 16px; border-radius:var(--r-md); margin:14px 0 0;
-  background:var(--orange-bg); color:var(--orange);
-  font-size:14.5px; font-weight:500;
+  display:flex; gap:12px; align-items:flex-start; padding:14px 16px;
+  border-radius:var(--r-md); margin:14px 0 0;
+  background:var(--orange-bg); color:var(--orange); font-size:14.5px; font-weight:500;
 }
 .banner.is-bad{ background:var(--red-bg); color:var(--red); }
 .banner svg{ width:20px; height:20px; flex:none; margin-top:1px; }
@@ -193,19 +171,16 @@ select.input{
    ===================================================================== */
 .searchbar{ position:relative; margin:16px 0 10px; }
 .searchbar .input{ padding-left:44px; }
-.searchbar svg{
+.searchbar > svg{
   position:absolute; left:15px; top:50%; transform:translateY(-50%);
   width:18px; height:18px; color:var(--ink-2); pointer-events:none;
 }
-input[type="search"]::-webkit-search-cancel-button{ -webkit-appearance:none; appearance:none; }
 .searchbar .clear{ position:absolute; right:8px; top:50%; transform:translateY(-50%); width:36px; height:36px; color:var(--ink-2); font-size:20px; }
-
 .chips{ display:flex; gap:8px; overflow-x:auto; padding-bottom:12px; scrollbar-width:none; }
 .chips::-webkit-scrollbar{ display:none; }
 .chip{
   flex:none; padding:8px 14px; border-radius:99px; font-size:14px; font-weight:600;
-  background:var(--surface); border:1px solid var(--line); color:var(--ink-2);
-  white-space:nowrap;
+  background:var(--surface); border:1px solid var(--line); color:var(--ink-2); white-space:nowrap;
 }
 .chip[aria-pressed="true"]{ background:var(--ink); color:var(--paper); border-color:var(--ink); }
 .filters{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px; }
@@ -213,18 +188,12 @@ input[type="search"]::-webkit-search-cancel-button{ -webkit-appearance:none; app
 
 /* =====================================================================
    7. ITEM LIST
-   A hairline rule on the left edge carries the expiry status.
    ===================================================================== */
 .list{ padding-bottom:140px; }
 .item{
-  position:relative;
-  display:flex; gap:14px; align-items:flex-start;
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-left-width:5px;
-  border-radius:var(--r-md);
-  padding:14px 14px 10px 14px;
-  margin-bottom:10px;
+  display:flex; gap:14px; align-items:flex-start; background:var(--surface);
+  border:1px solid var(--line); border-left-width:5px; border-radius:var(--r-md);
+  padding:14px 14px 10px 14px; margin-bottom:10px;
 }
 .item[data-status="expired"]{ border-left-color:var(--red); }
 .item[data-status="week"]   { border-left-color:var(--orange); }
@@ -232,12 +201,8 @@ input[type="search"]::-webkit-search-cancel-button{ -webkit-appearance:none; app
 .item[data-status="fine"]   { border-left-color:var(--green); }
 .item[data-status="none"]   { border-left-color:var(--grey); }
 .item.is-used{ opacity:.55; }
-
 .item-body{ flex:1; min-width:0; }
-.item-name{
-  font-size:17px; font-weight:600; letter-spacing:-.015em;
-  overflow-wrap:anywhere;
-}
+.item-name{ font-size:17px; font-weight:600; letter-spacing:-.015em; overflow-wrap:anywhere; }
 .status-line{ display:inline-flex; align-items:center; gap:7px; font-size:14px; font-weight:600; margin-top:3px; }
 .status-line[data-status="expired"]{ color:var(--red); }
 .status-line[data-status="week"]   { color:var(--orange); }
@@ -245,22 +210,13 @@ input[type="search"]::-webkit-search-cancel-button{ -webkit-appearance:none; app
 .status-line[data-status="fine"]   { color:var(--green); }
 .status-line[data-status="none"]   { color:var(--grey); font-weight:500; }
 .status-line em{ font-style:normal; font-weight:400; color:var(--ink-2); }
-
 .meta{ display:flex; flex-wrap:wrap; gap:6px; margin-top:9px; }
-.tag{
-  font-size:12.5px; font-weight:500; padding:3px 9px; border-radius:7px;
-  background:var(--surface-2); color:var(--ink-2); border:1px solid var(--line);
-}
+.tag{ font-size:12.5px; font-weight:500; padding:3px 9px; border-radius:7px; background:var(--surface-2); color:var(--ink-2); border:1px solid var(--line); }
 .tag.place{ color:var(--ink); font-weight:600; }
 .note{ font-size:13.5px; color:var(--ink-2); margin-top:8px; }
-
 .item-actions{ display:flex; gap:4px; margin-top:8px; margin-left:-8px; flex-wrap:wrap; }
-.item-actions button{
-  padding:8px; font-size:13.5px; font-weight:600; color:var(--ink-2); border-radius:8px;
-}
-.item-actions button:hover{ background:var(--surface-2); }
+.item-actions button{ padding:8px; font-size:13.5px; font-weight:600; color:var(--ink-2); border-radius:8px; }
 .item-actions .danger{ color:var(--red); }
-
 .state{ text-align:center; padding:56px 20px; color:var(--ink-2); }
 .state svg{ width:44px; height:44px; margin-bottom:14px; opacity:.5; }
 .state h3{ font-size:18px; font-weight:600; color:var(--ink); margin-bottom:6px; }
@@ -281,18 +237,12 @@ input[type="search"]::-webkit-search-cancel-button{ -webkit-appearance:none; app
 .actionbar .btn:not(.btn-primary){ background:var(--surface); }
 
 /* =====================================================================
-   9. SHEETS / MODALS
+   9. SHEETS / DIALOGS
    ===================================================================== */
-.sheet{
-  position:fixed; inset:0; z-index:60;
-  background:rgba(12,18,16,.5);
-  display:flex; align-items:flex-end; justify-content:center;
-}
+.sheet{ position:fixed; inset:0; z-index:60; background:rgba(12,18,16,.5); display:flex; align-items:flex-end; justify-content:center; }
 .sheet-panel{
-  width:100%; max-width:560px; max-height:94svh; overflow-y:auto;
-  background:var(--paper);
-  border-radius:var(--r-lg) var(--r-lg) 0 0;
-  padding:8px 18px calc(24px + var(--safe-b));
+  width:100%; max-width:560px; max-height:94svh; overflow-y:auto; background:var(--paper);
+  border-radius:var(--r-lg) var(--r-lg) 0 0; padding:8px 18px calc(24px + var(--safe-b));
   animation:rise .22s cubic-bezier(.2,.8,.3,1);
 }
 @keyframes rise{ from{ transform:translateY(22px); opacity:.6; } }
@@ -302,43 +252,72 @@ input[type="search"]::-webkit-search-cancel-button{ -webkit-appearance:none; app
 }
 .sheet-head{
   position:sticky; top:0; z-index:2; background:var(--paper);
-  display:flex; align-items:center; justify-content:space-between;
-  padding:12px 0 14px;
+  display:flex; align-items:center; justify-content:space-between; padding:12px 0 14px;
 }
 .sheet-head h2{ font-size:19px; font-weight:700; letter-spacing:-.02em; font-stretch:90%; }
 .sheet-head button{ font-size:15px; font-weight:600; color:var(--ink-2); padding:8px; }
 
-/* camera viewfinder */
-#reader{ width:100%; border-radius:var(--r-md); overflow:hidden; background:#000; min-height:240px; }
+/* custom confirm / prompt — replaces every native popup */
+#dialog{ z-index:90; align-items:center; padding:16px; }
+.dialog-panel{
+  max-width:390px; border-radius:var(--r-lg); background:var(--surface);
+  padding:24px; box-shadow:var(--shadow); animation:pop .16s ease-out;
+}
+@keyframes pop{ from{ transform:scale(.96); opacity:0; } }
+.dialog-panel h2{ font-size:18px; font-weight:700; letter-spacing:-.02em; margin-bottom:8px; }
+.dialog-panel p{ font-size:14.5px; color:var(--ink-2); margin-bottom:18px; white-space:pre-line; }
+.dlg-actions{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:6px; }
+.dlg-actions .btn{ min-height:46px; }
+#dlg-ok.is-danger{ background:var(--red); color:#fff; }
+
+/* camera */
+#reader{ width:100%; border-radius:var(--r-md); overflow:hidden; background:#000; min-height:230px; }
 #reader video{ width:100% !important; border-radius:var(--r-md); }
 .scan-tip{ font-size:14px; color:var(--ink-2); margin:12px 0; text-align:center; }
 .toggle{
-  display:flex; align-items:center; gap:12px; padding:14px;
-  background:var(--surface); border:1px solid var(--line); border-radius:var(--r-md);
-  margin-bottom:12px; font-size:14.5px; font-weight:500;
+  display:flex; align-items:center; gap:12px; padding:14px; background:var(--surface);
+  border:1px solid var(--line); border-radius:var(--r-md); margin-bottom:12px;
+  font-size:14.5px; font-weight:500;
 }
 .toggle input{ width:22px; height:22px; accent-color:var(--brand); flex:none; }
 .toggle small{ display:block; font-weight:400; color:var(--ink-2); font-size:13px; }
 
+/* fast date picker */
+.date-quick{ display:flex; gap:7px; overflow-x:auto; padding-bottom:9px; scrollbar-width:none; }
+.date-quick::-webkit-scrollbar{ display:none; }
+.date-quick .chip{ padding:7px 12px; font-size:13.5px; }
+.date-selects{ display:grid; grid-template-columns:1fr 1.5fr 1fr; gap:8px; }
+.date-selects .input{ min-height:46px; padding:10px 8px; font-size:15px; background-position:right 8px center; padding-right:26px; }
+.date-readout{
+  margin-top:9px; font-size:14px; font-weight:600; color:var(--ink-2);
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+}
+.date-readout button{ font-size:13.5px; font-weight:600; color:var(--brand); text-decoration:underline; text-underline-offset:3px; }
+
 /* toast */
 .toast{
-  position:fixed; left:50%; transform:translateX(-50%);
-  bottom:calc(96px + var(--safe-b)); z-index:80;
-  background:var(--ink); color:var(--paper);
-  padding:12px 18px; border-radius:99px; font-size:14.5px; font-weight:500;
-  box-shadow:var(--shadow); max-width:88vw; text-align:center;
+  position:fixed; left:50%; transform:translateX(-50%); bottom:calc(96px + var(--safe-b)); z-index:95;
+  background:var(--ink); color:var(--paper); padding:12px 18px; border-radius:99px;
+  font-size:14.5px; font-weight:500; box-shadow:var(--shadow); max-width:88vw; text-align:center;
 }
 
-/* shopping list */
-.shop-line{ padding:12px 0; border-bottom:1px solid var(--line); display:flex; gap:12px; align-items:center; }
-.shop-line:last-child{ border-bottom:none; }
-.shop-line p{ flex:1; font-weight:500; }
-.shop-line small{ display:block; color:var(--ink-2); font-weight:400; }
-
-footer{
-  text-align:center; font-size:12.5px; color:var(--ink-2);
-  padding:24px 16px 150px;
+/* lists inside sheets */
+.rowline{ padding:12px 0; border-bottom:1px solid var(--line); display:flex; gap:12px; align-items:center; }
+.rowline:last-child{ border-bottom:none; }
+.rowline p{ flex:1; font-weight:500; min-width:0; overflow-wrap:anywhere; }
+.rowline small{ display:block; color:var(--ink-2); font-weight:400; }
+.rowline.done p{ text-decoration:line-through; color:var(--ink-2); }
+.tick{ width:26px; height:26px; border-radius:8px; border:2px solid var(--line); flex:none; display:grid; place-items:center; }
+.tick.on{ background:var(--green); border-color:var(--green); color:#fff; }
+.tick svg{ width:15px; height:15px; }
+.group-title{ font-size:13px; font-weight:700; color:var(--ink-2); margin:20px 0 2px; }
+.code-badge{
+  font-size:26px; font-weight:700; letter-spacing:.18em; font-stretch:88%;
+  background:var(--surface); border:1px dashed var(--line); border-radius:var(--r-md);
+  padding:14px; text-align:center; margin:8px 0 12px;
 }
+
+footer{ text-align:center; font-size:12.5px; color:var(--ink-2); padding:24px 16px 150px; }
 footer a{ color:var(--ink-2); }
 </style>
 </head>
@@ -350,7 +329,7 @@ footer a{ color:var(--ink-2); }
      =================================================================== -->
 <div id="screen-setup" class="centered hidden">
   <div class="card">
-    <div class="brandmark"><b>Dabba</b><span>pantry &amp; expiry tracker</span></div>
+    <div class="brandmark"><svg class="logo" viewBox="0 0 64 64" role="img" aria-label="Gromage"><rect width="64" height="64" rx="15" fill="#1D4E89"/><path d="M50 32A18 18 0 1 1 43.57 18.21" fill="none" stroke="#fff" stroke-width="8"/><path d="M26.74 14.79A18 18 0 0 1 43.57 18.21" fill="none" stroke="#F2A24B" stroke-width="8"/><path d="M38 32H50" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/></svg><div class="brandtext"><b>Gromage</b><span>pantry &amp; expiry tracker</span></div></div>
     <h2>Connect your Supabase project</h2>
     <p class="hint">Paste the two values from your Supabase dashboard. They stay on this device. Both are safe to use in a public web page.</p>
     <ol class="setup-steps">
@@ -372,20 +351,16 @@ footer a{ color:var(--ink-2); }
      =================================================================== -->
 <div id="screen-auth" class="centered hidden">
   <div class="card">
-    <div class="brandmark"><b>Dabba</b><span>pantry &amp; expiry tracker</span></div>
+    <div class="brandmark"><svg class="logo" viewBox="0 0 64 64" role="img" aria-label="Gromage"><rect width="64" height="64" rx="15" fill="#1D4E89"/><path d="M50 32A18 18 0 1 1 43.57 18.21" fill="none" stroke="#fff" stroke-width="8"/><path d="M26.74 14.79A18 18 0 0 1 43.57 18.21" fill="none" stroke="#F2A24B" stroke-width="8"/><path d="M38 32H50" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/></svg><div class="brandtext"><b>Gromage</b><span>pantry &amp; expiry tracker</span></div></div>
     <h2 id="auth-title">Sign in</h2>
-    <p class="hint" id="auth-sub">Your pantry is private to your account.</p>
-
+    <p class="hint" id="auth-sub">Everyone in your flat signs in with their own email and shares one pantry.</p>
     <div id="auth-msg" class="notice hidden"></div>
-
     <label class="field"><span>Email</span>
       <input id="auth-email" class="input" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com"></label>
-    <label class="field" id="auth-pass-field"><span>Password</span>
+    <label class="field"><span>Password</span>
       <input id="auth-password" class="input" type="password" autocomplete="current-password" placeholder="At least 6 characters"></label>
-
     <button id="auth-submit" class="btn btn-primary btn-block">Sign in</button>
     <button id="auth-magic" class="btn btn-quiet btn-block" style="margin-top:8px">Email me a sign-in link instead</button>
-
     <p class="switcher">
       <span id="auth-switch-text">New here?</span>
       <button id="auth-switch">Create an account</button>
@@ -397,35 +372,57 @@ footer a{ color:var(--ink-2); }
 </div>
 
 <!-- ===================================================================
-     SCREEN C — the app
+     SCREEN C — create or join a home
+     =================================================================== -->
+<div id="screen-home" class="centered hidden">
+  <div class="card">
+    <div class="brandmark"><svg class="logo" viewBox="0 0 64 64" role="img" aria-label="Gromage"><rect width="64" height="64" rx="15" fill="#1D4E89"/><path d="M50 32A18 18 0 1 1 43.57 18.21" fill="none" stroke="#fff" stroke-width="8"/><path d="M26.74 14.79A18 18 0 0 1 43.57 18.21" fill="none" stroke="#F2A24B" stroke-width="8"/><path d="M38 32H50" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/></svg><div class="brandtext"><b>Gromage</b><span id="home-who"></span></div></div>
+    <h2>Set up your home</h2>
+    <p class="hint">A home is one flat and one shared pantry. Everyone living there joins the same home with their own login.</p>
+    <div id="home-msg" class="notice hidden"></div>
+
+    <label class="field"><span>Name your home</span>
+      <input id="home-name" class="input" type="text" placeholder="Flat 402" autocomplete="off"></label>
+    <button id="home-create" class="btn btn-primary btn-block">Create this home</button>
+
+    <div class="split">or</div>
+
+    <label class="field"><span>Join with an invite code</span>
+      <input id="home-code" class="input" type="text" placeholder="A1B2C3" autocomplete="off" maxlength="6" style="text-transform:uppercase;letter-spacing:.14em"></label>
+    <button id="home-join" class="btn btn-block">Join that home</button>
+
+    <p class="switcher" style="margin-top:22px"><button id="home-signout" style="font-weight:400;font-size:13px">Sign out</button></p>
+  </div>
+</div>
+
+<!-- ===================================================================
+     SCREEN D — the app
      =================================================================== -->
 <div id="screen-app" class="hidden">
 
   <header class="topbar">
     <div class="wrap topbar-inner">
-      <div class="brandmark"><b>Dabba</b></div>
+      <div class="brandmark"><svg class="logo" viewBox="0 0 64 64" role="img" aria-label="Gromage"><rect width="64" height="64" rx="15" fill="#1D4E89"/><path d="M50 32A18 18 0 1 1 43.57 18.21" fill="none" stroke="#fff" stroke-width="8"/><path d="M26.74 14.79A18 18 0 0 1 43.57 18.21" fill="none" stroke="#F2A24B" stroke-width="8"/><path d="M38 32H50" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/></svg><div class="brandtext"><b>Gromage</b><span id="home-label"></span></div></div>
       <button id="btn-shopping" class="icon-btn" title="Shopping list" aria-label="Shopping list">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6L5 2H2"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>
+        <span class="badge hidden" id="shop-badge">0</span>
       </button>
       <button id="btn-theme" class="icon-btn" title="Light or dark" aria-label="Switch light or dark mode">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
       </button>
-      <button id="btn-signout" class="icon-btn" title="Sign out" aria-label="Sign out">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M15 17l5-5-5-5"/><path d="M20 12H9"/><path d="M12 20H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/></svg>
+      <button id="btn-settings" class="icon-btn" title="Settings" aria-label="Settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 9 19.4a1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.6 9a1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/></svg>
       </button>
     </div>
   </header>
 
   <main class="wrap">
-
-    <!-- shelf bar: the whole pantry's health in one line -->
     <section class="shelf" aria-label="Pantry summary">
       <div class="shelf-bar" id="shelf-bar" role="img" aria-label="Proportion of items by expiry status"></div>
       <div class="shelf-legend" id="shelf-legend"></div>
     </section>
 
     <div id="alert-banner" class="banner hidden"></div>
-
     <div id="global-error" class="notice notice-bad hidden" style="margin-top:14px"></div>
 
     <div class="searchbar">
@@ -445,7 +442,7 @@ footer a{ color:var(--ink-2); }
 
     <div class="filters">
       <select id="filter-category" class="input"><option value="">All categories</option></select>
-      <select id="filter-location" class="input"><option value="">All locations</option></select>
+      <select id="filter-location" class="input"><option value="">All places</option></select>
     </div>
 
     <ul class="list" id="list" aria-live="polite"></ul>
@@ -483,24 +480,40 @@ footer a{ color:var(--ink-2); }
     <label class="field"><span>Name</span>
       <input id="f-name" class="input" type="text" placeholder="Turmeric powder" autocomplete="off" enterkeyhint="next"></label>
 
-    <div class="row-2">
-      <label class="field"><span>Category</span>
-        <select id="f-category" class="input"></select></label>
-      <label class="field"><span>Expiry date</span>
-        <input id="f-expiry" class="input" type="date"></label>
+    <!-- fast expiry entry: shelf-life shortcuts, then three quick dropdowns -->
+    <div class="field">
+      <span>Expiry date</span>
+      <div class="date-quick" id="date-quick">
+        <button type="button" class="chip" data-add="7">1 week</button>
+        <button type="button" class="chip" data-add="30">1 month</button>
+        <button type="button" class="chip" data-add="90">3 months</button>
+        <button type="button" class="chip" data-add="180">6 months</button>
+        <button type="button" class="chip" data-add="365">1 year</button>
+        <button type="button" class="chip" data-add="730">2 years</button>
+      </div>
+      <div class="date-selects">
+        <select id="f-day" class="input" aria-label="Day"></select>
+        <select id="f-month" class="input" aria-label="Month"></select>
+        <select id="f-year" class="input" aria-label="Year"></select>
+      </div>
+      <p class="date-readout"><span id="date-readout">No expiry date</span>
+        <button type="button" id="date-clear">Clear</button></p>
+      <input type="hidden" id="f-expiry">
     </div>
 
     <div class="row-2">
+      <label class="field"><span>Category</span>
+        <select id="f-category" class="input"></select></label>
       <label class="field"><span>Quantity</span>
         <input id="f-quantity" class="input" type="text" placeholder="500 g" list="dl-quantity" autocomplete="off">
         <datalist id="dl-quantity">
           <option value="100 g"><option value="200 g"><option value="500 g"><option value="1 kg"><option value="5 kg">
           <option value="500 ml"><option value="1 L"><option value="1 packet"><option value="1 bottle">
         </datalist></label>
-      <label class="field"><span>Where is it?</span>
-        <input id="f-location" class="input" type="text" placeholder="Cabinet 2, top shelf" list="dl-location" autocomplete="off"></label>
     </div>
-    <datalist id="dl-location"></datalist>
+
+    <label class="field"><span>Where is it?</span>
+      <select id="f-location" class="input"></select></label>
 
     <label class="field"><span>Notes</span>
       <textarea id="f-notes" class="input" rows="2" placeholder="Opened on 5 Sep, keep airtight"></textarea></label>
@@ -530,14 +543,19 @@ footer a{ color:var(--ink-2); }
     </label>
 
     <div id="scan-error" class="notice notice-bad hidden"></div>
-    <div id="reader"></div>
-    <p class="scan-tip" id="scan-tip">Hold the barcode 10–15 cm away in good light. Steady the phone for a second.</p>
-    <button id="scan-manual" class="btn btn-block">Type the barcode instead</button>
+    <div id="reader-holder"><div id="reader"></div></div>
+    <p class="scan-tip" id="scan-tip">Hold the barcode 10–15 cm away in good light. Keep the whole barcode inside the box.</p>
+
+    <div class="row-2">
+      <button id="scan-photo" class="btn">Use a photo</button>
+      <button id="scan-manual" class="btn">Type the number</button>
+    </div>
+    <input type="file" id="scan-file" accept="image/*" capture="environment" class="hidden">
   </div>
 </div>
 
 <!-- ===================================================================
-     SHEET — shopping list (built from items you marked used up)
+     SHEET — shopping list
      =================================================================== -->
 <div id="sheet-shop" class="sheet hidden" role="dialog" aria-modal="true" aria-labelledby="shop-title">
   <div class="sheet-panel">
@@ -545,11 +563,73 @@ footer a{ color:var(--ink-2); }
       <h2 id="shop-title">Shopping list</h2>
       <button data-close="sheet-shop">Close</button>
     </div>
-    <p class="hint" style="margin-bottom:14px">Everything you marked as used up, plus anything already expired. Tap a name to put it back in the pantry.</p>
-    <div id="shop-list"></div>
+
+    <div class="row-2" style="grid-template-columns:2fr 1fr">
+      <input id="shop-new-name" class="input" type="text" placeholder="Add anything, e.g. milk" autocomplete="off" enterkeyhint="done">
+      <button id="shop-add" class="btn btn-primary">Add</button>
+    </div>
+    <div id="shop-list" style="margin-top:6px"></div>
+
     <div class="row-2" style="margin-top:18px">
       <button id="shop-copy" class="btn">Copy list</button>
       <button id="shop-share" class="btn btn-primary">Send on WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================================================================
+     SHEET — settings (home, members, storage places)
+     =================================================================== -->
+<div id="sheet-settings" class="sheet hidden" role="dialog" aria-modal="true" aria-labelledby="set-title">
+  <div class="sheet-panel">
+    <div class="sheet-head">
+      <h2 id="set-title">Settings</h2>
+      <button data-close="sheet-settings">Close</button>
+    </div>
+
+    <p class="group-title">Your home</p>
+    <div class="row-2" style="grid-template-columns:2fr 1fr">
+      <input id="set-home-name" class="input" type="text" placeholder="Flat 402">
+      <button id="set-home-save" class="btn">Rename</button>
+    </div>
+
+    <p class="group-title">Invite your flatmate</p>
+    <p class="hint">They sign up with their own email, then enter this code. You will both see the same pantry and shopping list.</p>
+    <div class="code-badge" id="set-code">------</div>
+    <div class="row-2">
+      <button id="set-copy-code" class="btn">Copy code</button>
+      <button id="set-share-code" class="btn">Share invite</button>
+    </div>
+
+    <p class="group-title">People in this home</p>
+    <div id="set-members"></div>
+
+    <p class="group-title">Storage places</p>
+    <p class="hint">These fill the "Where is it?" dropdown. Name them the way you actually talk about them.</p>
+    <div class="row-2" style="grid-template-columns:2fr 1fr; margin-top:10px">
+      <input id="set-new-place" class="input" type="text" placeholder="Cabinet 4, top shelf" autocomplete="off">
+      <button id="set-add-place" class="btn btn-primary">Add</button>
+    </div>
+    <div id="set-places" style="margin-top:6px"></div>
+
+    <p class="group-title">Account</p>
+    <div id="set-email" class="hint" style="margin-bottom:10px"></div>
+    <button id="set-signout" class="btn btn-block">Sign out</button>
+    <button id="set-reset" class="btn btn-quiet btn-block" style="margin-top:6px">Change Supabase project</button>
+  </div>
+</div>
+
+<!-- ===================================================================
+     Custom confirm / prompt. No native browser popups anywhere.
+     =================================================================== -->
+<div id="dialog" class="sheet hidden" role="dialog" aria-modal="true" aria-labelledby="dlg-title">
+  <div class="dialog-panel">
+    <h2 id="dlg-title"></h2>
+    <p id="dlg-message"></p>
+    <input id="dlg-input" class="input hidden" type="text" autocomplete="off">
+    <div class="dlg-actions">
+      <button id="dlg-cancel" class="btn">Cancel</button>
+      <button id="dlg-ok" class="btn btn-primary">Confirm</button>
     </div>
   </div>
 </div>
@@ -558,18 +638,22 @@ footer a{ color:var(--ink-2); }
 <script src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
 <script>
 /* =====================================================================
-   DABBA — pantry & expiry tracker
+   GROMAGE — kitchen pantry & expiry tracker
    Everything runs in the browser. Supabase is the only backend.
 
-   Sections below:
      1. CONFIG        — your two Supabase values
-     2. HELPERS       — escaping, dates, toasts
+     2. HELPERS       — escaping, dates, toasts, custom dialogs
      3. AUTH          — sign up, sign in, sign out
-     4. DATABASE      — reading and writing pantry_items / product_catalog
-     5. SCANNING      — camera + barcode lookup
-     6. UI RENDERING  — list, shelf bar, filters
-     7. FORM          — add / edit / delete
-     8. STARTUP
+     4. HOMES         — create or join a flat
+     5. DATABASE      — pantry items, shopping list, product catalog
+     6. CATEGORIES    — working out what a scanned product is
+     7. SCANNING      — camera, photo fallback, barcode lookup
+     8. DATES         — the fast expiry picker
+     9. UI RENDERING  — list, shelf bar, filters
+    10. FORM          — add / edit / delete
+    11. SHOPPING LIST
+    12. SETTINGS      — home name, invite code, storage places
+    13. STARTUP
    ===================================================================== */
 
 
@@ -581,12 +665,11 @@ footer a{ color:var(--ink-2); }
    Row Level Security rules in supabase-setup.sql.
    NEVER paste a service_role key here.
 
-   If you leave them blank, the app will ask you for them on first run
-   and remember them on this device instead.
+   Leave them blank and the app will ask for them on first run instead.
    ===================================================================== */
 
-const SUPABASE_URL      = "https://mfqzrzquzifaegmdhzwh.supabase.co";   // e.g. "https://abcdefgh.supabase.co"
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1mcXpyenF1emlmYWVnbWRoendoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk4MjQwMTQsImV4cCI6MjEwNTQwMDAxNH0.QNFy6J3Gt05JvVxKL1-mX3BE7OhAfwOTxsvXLnL0WUM";   // e.g. "eyJhbGciOiJIUzI1NiIsInR5cCI6..."
+const SUPABASE_URL      = "https://mfqzrzquzifaegmdhzwh.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1mcXpyenF1emlmYWVnbWRoendoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk4MjQwMTQsImV4cCI6MjEwNTQwMDAxNH0.QNFy6J3Gt05JvVxKL1-mX3BE7OhAfwOTxsvXLnL0WUM";
 
 // ---------------------------------------------------------------------
 
@@ -594,24 +677,30 @@ const CATEGORIES = ["Spices","Pulses","Flours","Snacks","Beverages",
                     "Oils and sauces","Baking","Other"];
 
 const STATUS = {
-  expired:{ label:"Expired",         css:"var(--red)"    },
-  week:   { label:"Use this week",   css:"var(--orange)" },
-  month:  { label:"Use this month",  css:"var(--amber)"  },
-  fine:   { label:"Good",            css:"var(--green)"  },
-  none:   { label:"No date",         css:"var(--grey)"   }
+  expired:{ label:"Expired",        css:"var(--red)"    },
+  week:   { label:"Use this week",  css:"var(--orange)" },
+  month:  { label:"Use this month", css:"var(--amber)"  },
+  fine:   { label:"Good",           css:"var(--green)"  },
+  none:   { label:"No date",        css:"var(--grey)"   }
 };
 
-const CONFIG_KEY = "dabba.config";
-const THEME_KEY  = "dabba.theme";
+const MONTHS = ["January","February","March","April","May","June",
+                "July","August","September","October","November","December"];
 
-let sb          = null;   // the Supabase client
-let session     = null;   // current signed-in session
-let items       = [];     // every row we loaded for this user
-let editingId   = null;   // id of the item open in the form, or null
-let scanner     = null;   // html5-qrcode instance
-let scanning    = false;
-let authMode    = "signin";
+const CONFIG_KEY = "gromage.config";
+const THEME_KEY  = "gromage.theme";
+const HOME_KEY   = "gromage.home";
+
+let sb          = null;   // Supabase client
+let session     = null;   // signed-in session
+let home        = null;   // { id, name, invite_code }
+let items       = [];     // pantry rows for this home
+let places      = [];     // storage places for this home
+let shopping    = [];     // manually added shopping rows
+let members     = [];     // people in this home
+let editingId   = null;
 let quickFilter = "all";
+let authMode    = "signin";
 
 
 /* =====================================================================
@@ -625,11 +714,8 @@ const el = (sel, root = document) => root.querySelector(sel);
 function esc(value) {
   if (value === null || value === undefined) return "";
   return String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
 }
 
 function show(node) { node.classList.remove("hidden"); }
@@ -655,18 +741,80 @@ function toast(message) {
   toastTimer = setTimeout(() => node.remove(), 3200);
 }
 
-/** Today at midnight, so "days left" is never off by a few hours. */
-function today() {
-  const d = new Date();
-  d.setHours(0, 0, 0, 0);
-  return d;
+/* --- custom dialogs: nothing in this app uses a browser popup -------- */
+
+let dialogResolve = null;
+
+function closeDialog(value) {
+  hide($("dialog"));
+  const fn = dialogResolve;
+  dialogResolve = null;
+  if (fn) fn(value);
 }
 
-/** Whole days from today until an ISO date string. Negative = past. */
+/** Yes / no question. Returns a promise for true or false. */
+function askConfirm(opts) {
+  return new Promise((resolve) => {
+    dialogResolve = resolve;
+    $("dlg-title").textContent   = opts.title || "Are you sure?";
+    $("dlg-message").textContent = opts.message || "";
+    $("dlg-message").classList.toggle("hidden", !opts.message);
+    hide($("dlg-input"));
+    $("dlg-cancel").textContent = opts.cancelText || "Cancel";
+    $("dlg-ok").textContent     = opts.confirmText || "Confirm";
+    $("dlg-ok").classList.toggle("is-danger", !!opts.danger);
+    show($("dialog"));
+    setTimeout(() => $("dlg-ok").focus(), 60);
+  });
+}
+
+/** Ask for a line of text. Returns the text, or null if cancelled. */
+function askText(opts) {
+  return new Promise((resolve) => {
+    dialogResolve = resolve;
+    $("dlg-title").textContent   = opts.title || "";
+    $("dlg-message").textContent = opts.message || "";
+    $("dlg-message").classList.toggle("hidden", !opts.message);
+    const input = $("dlg-input");
+    input.value = opts.value || "";
+    input.placeholder = opts.placeholder || "";
+    input.inputMode = opts.numeric ? "numeric" : "text";
+    show(input);
+    $("dlg-cancel").textContent = "Cancel";
+    $("dlg-ok").textContent     = opts.confirmText || "Save";
+    $("dlg-ok").classList.remove("is-danger");
+    show($("dialog"));
+    setTimeout(() => { input.focus(); input.select(); }, 60);
+  });
+}
+
+function wireDialog() {
+  $("dlg-cancel").addEventListener("click", () => closeDialog(null));
+  $("dlg-ok").addEventListener("click", () => {
+    const input = $("dlg-input");
+    closeDialog(input.classList.contains("hidden") ? true : input.value.trim());
+  });
+  $("dlg-input").addEventListener("keydown", (ev) => {
+    if (ev.key === "Enter") { ev.preventDefault(); $("dlg-ok").click(); }
+  });
+  $("dialog").addEventListener("click", (ev) => {
+    if (ev.target === $("dialog")) closeDialog(null);
+  });
+}
+
+/* --- dates ---------------------------------------------------------- */
+
+function today() { const d = new Date(); d.setHours(0,0,0,0); return d; }
+
+function toISO(date) {
+  const p = (n) => String(n).padStart(2, "0");
+  return date.getFullYear() + "-" + p(date.getMonth() + 1) + "-" + p(date.getDate());
+}
+
 function daysUntil(isoDate) {
   if (!isoDate) return null;
-  const parts = String(isoDate).slice(0, 10).split("-");
-  const target = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+  const p = String(isoDate).slice(0, 10).split("-");
+  const target = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
   target.setHours(0, 0, 0, 0);
   return Math.round((target - today()) / 86400000);
 }
@@ -674,8 +822,8 @@ function daysUntil(isoDate) {
 function statusOf(item) {
   const d = daysUntil(item.expiry_date);
   if (d === null) return "none";
-  if (d < 0)  return "expired";
-  if (d <= 7) return "week";
+  if (d < 0)   return "expired";
+  if (d <= 7)  return "week";
   if (d <= 30) return "month";
   return "fine";
 }
@@ -683,7 +831,7 @@ function statusOf(item) {
 function statusText(item) {
   const d = daysUntil(item.expiry_date);
   if (d === null) return "No expiry date";
-  if (d < 0)  return Math.abs(d) === 1 ? "Expired yesterday" : "Expired " + Math.abs(d) + " days ago";
+  if (d < 0)   return Math.abs(d) === 1 ? "Expired yesterday" : "Expired " + Math.abs(d) + " days ago";
   if (d === 0) return "Expires today";
   if (d === 1) return "1 day left";
   return d + " days left";
@@ -691,24 +839,27 @@ function statusText(item) {
 
 function prettyDate(isoDate) {
   if (!isoDate) return "";
-  const parts = String(isoDate).slice(0, 10).split("-");
-  const d = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
-  return d.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
+  const p = String(isoDate).slice(0, 10).split("-");
+  return new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]))
+    .toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
 }
 
-/** Turn any Supabase / network failure into something a human can act on. */
+/* --- errors --------------------------------------------------------- */
+
 function friendlyError(error) {
   const msg = (error && (error.message || error.error_description || error.hint)) || String(error || "");
   const low = msg.toLowerCase();
 
   if (low.includes("failed to fetch") || low.includes("networkerror") || !navigator.onLine)
     return "No internet connection. Check your network and try again.";
-  if (low.includes("jwt") || low.includes("expired") || low.includes("invalid claim"))
+  if (low.includes("jwt") || low.includes("invalid claim") || low.includes("token is expired"))
     return "Your session expired. Please sign in again.";
+  if (low.includes("invalid_code"))
+    return "That invite code does not match any home. Check the six characters and try again.";
   if (low.includes("row-level security") || low.includes("violates row-level"))
     return "The database refused that. Re-run supabase-setup.sql in the SQL editor.";
-  if (low.includes("relation") && low.includes("does not exist"))
-    return "The tables are missing. Run supabase-setup.sql in the Supabase SQL editor.";
+  if ((low.includes("relation") || low.includes("function")) && low.includes("does not exist"))
+    return "Your database is on the old version. Run the new supabase-setup.sql in the SQL editor.";
   if (low.includes("invalid login credentials"))
     return "That email and password do not match an account.";
   if (low.includes("email not confirmed"))
@@ -717,13 +868,14 @@ function friendlyError(error) {
     return "That email already has an account. Sign in instead.";
   if (low.includes("invalid api key") || low.includes("no api key"))
     return "The Supabase key is wrong. Check the anon key in the settings.";
+  if (low.includes("duplicate key"))
+    return "That already exists.";
   return msg || "Something went wrong. Please try again.";
 }
 
-/** Session gone? Kick back to the sign-in screen rather than failing quietly. */
 function handleAuthLoss(error) {
   const msg = ((error && error.message) || "").toLowerCase();
-  if (msg.includes("jwt") || msg.includes("expired")) {
+  if (msg.includes("jwt") || msg.includes("token is expired")) {
     session = null;
     showScreen("auth");
     setNotice($("auth-msg"), "Your session expired. Please sign in again.", "bad");
@@ -738,18 +890,18 @@ function handleAuthLoss(error) {
    ===================================================================== */
 
 function readConfig() {
-  if (SUPABASE_URL && SUPABASE_ANON_KEY) {
+  if (SUPABASE_URL && SUPABASE_ANON_KEY)
     return { url: SUPABASE_URL.trim(), key: SUPABASE_ANON_KEY.trim() };
-  }
   try {
-    const saved = JSON.parse(localStorage.getItem(CONFIG_KEY) || "null");
-    if (saved && saved.url && saved.key) return saved;
+    const raw = localStorage.getItem(CONFIG_KEY) || localStorage.getItem("dabba.config") || "null";
+    const savedConfig = JSON.parse(raw);
+    if (savedConfig && savedConfig.url && savedConfig.key) return savedConfig;
   } catch (e) { /* ignore corrupt value */ }
   return null;
 }
 
 function showScreen(which) {
-  ["setup", "auth", "app"].forEach((name) => {
+  ["setup", "auth", "home", "app"].forEach((name) => {
     const node = $("screen-" + name);
     if (name === which) show(node); else hide(node);
   });
@@ -771,48 +923,45 @@ function wireSetupScreen() {
       return setNotice($("setup-error"), "That anon key looks too short. Copy the whole thing.", "bad");
     if (key.toLowerCase().includes("service_role"))
       return setNotice($("setup-error"), "That is the service_role key. Never use it here — copy the anon / publishable key instead.", "bad");
-    localStorage.setItem(CONFIG_KEY, JSON.stringify({ url, key }));
+    localStorage.setItem(CONFIG_KEY, JSON.stringify({ url: url, key: key }));
     location.reload();
   });
 }
 
 function wireAuthScreen() {
-  const email    = $("auth-email");
-  const password = $("auth-password");
+  const emailBox = $("auth-email"), passwordBox = $("auth-password");
 
   $("auth-switch").addEventListener("click", () => {
     authMode = authMode === "signin" ? "signup" : "signin";
     const isUp = authMode === "signup";
     $("auth-title").textContent       = isUp ? "Create an account" : "Sign in";
-    $("auth-sub").textContent         = isUp ? "One account per person. Nobody else can see your pantry."
-                                             : "Your pantry is private to your account.";
     $("auth-submit").textContent      = isUp ? "Create account" : "Sign in";
     $("auth-switch-text").textContent = isUp ? "Already have an account?" : "New here?";
     $("auth-switch").textContent      = isUp ? "Sign in" : "Create an account";
-    password.setAttribute("autocomplete", isUp ? "new-password" : "current-password");
+    passwordBox.setAttribute("autocomplete", isUp ? "new-password" : "current-password");
     setNotice($("auth-msg"), "");
   });
 
   $("auth-submit").addEventListener("click", async () => {
-    const e = email.value.trim(), p = password.value;
-    if (!e || !p) return setNotice($("auth-msg"), "Enter your email and a password.", "bad");
-    if (p.length < 6) return setNotice($("auth-msg"), "Passwords need at least 6 characters.", "bad");
+    const mail = emailBox.value.trim(), pass = passwordBox.value;
+    if (!mail || !pass)  return setNotice($("auth-msg"), "Enter your email and a password.", "bad");
+    if (pass.length < 6) return setNotice($("auth-msg"), "Passwords need at least 6 characters.", "bad");
 
     $("auth-submit").disabled = true;
     $("auth-submit").textContent = "Just a moment…";
     try {
       if (authMode === "signup") {
         const { data, error } = await sb.auth.signUp({
-          email: e, password: p, options: { emailRedirectTo: location.href.split("#")[0] }
+          email: mail, password: pass, options: { emailRedirectTo: location.href.split("#")[0] }
         });
         if (error) throw error;
-        if (data.session) { session = data.session; await enterApp(); }
-        else setNotice($("auth-msg"), "Account created. Check " + e + " and click the confirmation link, then sign in.", "good");
+        if (data.session) { session = data.session; await afterSignIn(); }
+        else setNotice($("auth-msg"), "Account created. Open " + mail + ", click the confirmation link, then sign in.", "good");
       } else {
-        const { data, error } = await sb.auth.signInWithPassword({ email: e, password: p });
+        const { data, error } = await sb.auth.signInWithPassword({ email: mail, password: pass });
         if (error) throw error;
         session = data.session;
-        await enterApp();
+        await afterSignIn();
       }
     } catch (error) {
       setNotice($("auth-msg"), friendlyError(error), "bad");
@@ -823,51 +972,124 @@ function wireAuthScreen() {
   });
 
   $("auth-magic").addEventListener("click", async () => {
-    const e = email.value.trim();
-    if (!e) return setNotice($("auth-msg"), "Enter your email first.", "bad");
+    const mail = emailBox.value.trim();
+    if (!mail) return setNotice($("auth-msg"), "Enter your email first.", "bad");
     try {
       const { error } = await sb.auth.signInWithOtp({
-        email: e, options: { emailRedirectTo: location.href.split("#")[0] }
+        email: mail, options: { emailRedirectTo: location.href.split("#")[0] }
       });
       if (error) throw error;
       setNotice($("auth-msg"), "Link sent. Open the email on this device and tap it.", "good");
-    } catch (error) {
-      setNotice($("auth-msg"), friendlyError(error), "bad");
-    }
+    } catch (error) { setNotice($("auth-msg"), friendlyError(error), "bad"); }
   });
 
-  password.addEventListener("keydown", (ev) => { if (ev.key === "Enter") $("auth-submit").click(); });
+  passwordBox.addEventListener("keydown", (ev) => { if (ev.key === "Enter") $("auth-submit").click(); });
+  $("reset-config").addEventListener("click", forgetProject);
+}
 
-  $("reset-config").addEventListener("click", () => {
-    if (confirm("Forget the saved Supabase project on this device?")) {
-      localStorage.removeItem(CONFIG_KEY);
-      location.reload();
-    }
+async function forgetProject() {
+  const ok = await askConfirm({
+    title: "Change Supabase project?",
+    message: "This device will forget the saved project URL and key. Your data stays in Supabase.",
+    confirmText: "Forget it", danger: true
   });
+  if (!ok) return;
+  localStorage.removeItem(CONFIG_KEY);
+  localStorage.removeItem("dabba.config");
+  location.reload();
+}
 
-  $("btn-signout").addEventListener("click", async () => {
-    if (!confirm("Sign out of Dabba?")) return;
-    await sb.auth.signOut();
-    session = null; items = [];
-    showScreen("auth");
-  });
+async function doSignOut() {
+  const ok = await askConfirm({ title: "Sign out of Gromage?", confirmText: "Sign out", danger: true });
+  if (!ok) return;
+  await sb.auth.signOut();
+  session = null; home = null; items = []; places = []; shopping = [];
+  hide($("sheet-settings"));
+  showScreen("auth");
 }
 
 
 /* =====================================================================
-   4. DATABASE
+   4. HOMES — one flat, several logins, one shared pantry
    ===================================================================== */
 
-async function loadItems() {
+function myName() {
+  const mail = (session && session.user && session.user.email) || "";
+  return mail.split("@")[0] || "Someone";
+}
+
+/** Find which home this person belongs to. Returns false if none yet. */
+async function loadHome() {
+  const { data: rows, error } = await sb
+    .from("household_members").select("household_id").eq("user_id", session.user.id);
+  if (error) throw error;
+  if (!rows || !rows.length) return false;
+
+  const preferred = localStorage.getItem(HOME_KEY);
+  const chosen = rows.find((r) => r.household_id === preferred) || rows[0];
+
+  const { data: houses, error: houseError } = await sb
+    .from("households").select("id, name, invite_code").eq("id", chosen.household_id);
+  if (houseError) throw houseError;
+  if (!houses || !houses.length) return false;
+
+  home = houses[0];
+  localStorage.setItem(HOME_KEY, home.id);
+  return true;
+}
+
+function wireHomeScreen() {
+  $("home-create").addEventListener("click", async () => {
+    const name = $("home-name").value.trim();
+    if (!name) return setNotice($("home-msg"), "Give your home a name, like Flat 402.", "bad");
+    $("home-create").disabled = true;
+    try {
+      const { error } = await sb.rpc("create_household", { p_name: name, p_display: myName() });
+      if (error) throw error;
+      await afterSignIn();
+    } catch (error) {
+      setNotice($("home-msg"), friendlyError(error), "bad");
+    } finally { $("home-create").disabled = false; }
+  });
+
+  $("home-join").addEventListener("click", async () => {
+    const code = $("home-code").value.trim().toUpperCase();
+    if (code.length < 4) return setNotice($("home-msg"), "Invite codes are six characters long.", "bad");
+    $("home-join").disabled = true;
+    try {
+      const { error } = await sb.rpc("join_household", { p_code: code, p_display: myName() });
+      if (error) throw error;
+      await afterSignIn();
+    } catch (error) {
+      setNotice($("home-msg"), friendlyError(error), "bad");
+    } finally { $("home-join").disabled = false; }
+  });
+
+  $("home-signout").addEventListener("click", doSignOut);
+}
+
+
+/* =====================================================================
+   5. DATABASE
+   ===================================================================== */
+
+async function loadEverything() {
   renderSkeleton();
   try {
-    const { data, error } = await sb
-      .from("pantry_items")
-      .select("*")
-      .order("expiry_date", { ascending: true, nullsFirst: false })
-      .order("created_at",  { ascending: false });
-    if (error) throw error;
-    items = data || [];
+    const [itemRes, placeRes, shopRes, memberRes] = await Promise.all([
+      sb.from("pantry_items").select("*").eq("household_id", home.id),
+      sb.from("locations").select("*").eq("household_id", home.id).order("sort_order"),
+      sb.from("shopping_items").select("*").eq("household_id", home.id).order("created_at"),
+      sb.from("household_members").select("user_id, display_name, joined_at").eq("household_id", home.id)
+    ]);
+    if (itemRes.error)  throw itemRes.error;
+    if (placeRes.error) throw placeRes.error;
+
+    items    = itemRes.data   || [];
+    places   = placeRes.data  || [];
+    shopping = shopRes.data   || [];
+    members  = memberRes.data || [];
+
     setNotice($("global-error"), "");
     render();
   } catch (error) {
@@ -883,7 +1105,8 @@ async function saveItem(payload) {
     const { error } = await sb.from("pantry_items").update(payload).eq("id", editingId);
     if (error) throw error;
   } else {
-    payload.user_id = session.user.id;   // belt and braces; the DB default also sets this
+    payload.household_id = home.id;
+    payload.user_id      = session.user.id;
     const { error } = await sb.from("pantry_items").insert(payload);
     if (error) throw error;
   }
@@ -899,7 +1122,8 @@ async function setUsed(id, used) {
   if (error) throw error;
 }
 
-/** Remember this barcode for everyone, so the next scan is instant. */
+/** Remember this barcode for everyone, so the next scan is instant —
+    and so a category you corrected by hand stays corrected. */
 async function rememberProduct(row) {
   if (!row.barcode) return;
   try {
@@ -911,7 +1135,6 @@ async function rememberProduct(row) {
       quantity: row.quantity || null
     }, { onConflict: "barcode" });
   } catch (e) {
-    // A failed catalog write must never block saving the pantry item.
     console.warn("Could not update the shared catalog:", e);
   }
 }
@@ -925,29 +1148,295 @@ async function lookupCatalog(barcode) {
 
 
 /* =====================================================================
-   5. SCANNING
+   6. CATEGORIES
+   Two passes. First a short list of exact overrides for the things that
+   otherwise land in the wrong place — besan is a flour, not a pulse,
+   and corn starch is a flour, not "Other". Then a weighted keyword
+   count in which the product name counts four times as much as the
+   Open Food Facts category text, which is often far too broad.
    ===================================================================== */
 
-/** Best guess at one of our categories from Open Food Facts text. */
-function guessCategory(text) {
-  const t = (text || "").toLowerCase();
-  const rules = [
-    [/spice|masala|turmeric|chilli|chili|cumin|coriander|pepper|condiment|herb/, "Spices"],
-    [/lentil|pulse|dal|dhal|legume|chickpea|bean|gram|rajma/,                    "Pulses"],
-    [/flour|atta|maida|besan|rava|semolina|rice|grain|cereal|pasta|noodle/,       "Flours"],
-    [/snack|biscuit|cookie|chip|crisp|namkeen|chocolate|candy|sweet|nut/,         "Snacks"],
-    [/tea|coffee|juice|drink|beverage|water|squash|soda|milk/,                    "Beverages"],
-    [/oil|ghee|sauce|ketchup|vinegar|mayonnaise|pickle|paste/,                    "Oils and sauces"],
-    [/bak|yeast|soda|essence|icing|sugar|cocoa|custard/,                          "Baking"]
-  ];
-  for (const [re, name] of rules) if (re.test(t)) return name;
-  return "Other";
+const CATEGORY_OVERRIDES = [
+  [/besan|gram\s*flour|chickpea\s*flour|chana\s*atta/i,                          "Flours"],
+  [/corn\s*flour|corn\s*starch|cornstarch|cornflour|arrowroot|potato\s*starch/i, "Flours"],
+  [/rice\s*flour|wheat\s*flour|multigrain\s*atta|idli\s*rava|dosa\s*batter/i,    "Flours"],
+  [/custard\s*powder|baking\s*powder|baking\s*soda|cake\s*mix|icing\s*sugar|cocoa\s*powder|jelly\s*crystal/i, "Baking"],
+  [/kasuri\s*methi|garam\s*masala|chaat\s*masala|sambar\s*powder|rasam\s*powder/i, "Spices"],
+  [/soya\s*chunk|soy\s*chunk|nutrela/i,                                          "Pulses"],
+  [/peanut\s*butter|chocolate\s*spread|mixed\s*fruit\s*jam/i,                     "Oils and sauces"]
+];
+
+const CATEGORY_WORDS = {
+  "Spices": ["spice","spices","masala","turmeric","haldi","chilli","chili","mirch","jeera","cumin",
+             "coriander","dhania","pepper","garam","hing","asafoetida","cardamom","elaichi","clove",
+             "laung","cinnamon","dalchini","methi","fenugreek","ajwain","saunf","fennel","mustard",
+             "rai","bay","salt","namak","seasoning","seasonings","herb","herbs","condiment","kasuri"],
+  "Pulses": ["dal","daal","dhal","toor","tur","arhar","moong","mung","masoor","urad","rajma","chole",
+             "chickpea","chickpeas","kabuli","lentil","lentils","pulse","pulses","legume","legumes",
+             "bean","beans","peas","matar","lobia","kidney"],
+  "Flours": ["flour","flours","atta","maida","besan","suji","sooji","rava","semolina","ragi","jowar",
+             "bajra","starch","rice","grain","grains","cereal","cereals","pasta","noodles","noodle",
+             "vermicelli","poha","oats","oat","daliya","breadcrumb","breadcrumbs","batter","idli",
+             "dosa","wheat","millet","millets","quinoa","sago","sabudana"],
+  "Snacks": ["snack","snacks","biscuit","biscuits","cookie","cookies","chips","crisps","namkeen",
+             "bhujia","sev","mixture","chocolate","candy","toffee","wafer","wafers","rusk","cracker",
+             "crackers","popcorn","nut","nuts","almond","almonds","badam","cashew","cashews","kaju",
+             "pista","pistachio","walnut","raisin","raisins","kishmish","chikki","papad","khakhra"],
+  "Beverages": ["tea","chai","coffee","juice","drink","drinks","beverage","beverages","squash","soda",
+                "cola","milk","horlicks","bournvita","boost","complan","water","lassi","smoothie","syrup"],
+  "Oils and sauces": ["oil","oils","ghee","butter","sauce","sauces","ketchup","vinegar","mayonnaise",
+                      "mayo","pickle","achar","chutney","jam","honey","paste","dressing","spread",
+                      "tahini","olive"],
+  "Baking": ["baking","yeast","icing","cocoa","custard","jelly","essence","vanilla","colour","color",
+             "sugar","cheeni","jaggery","gud","condensed","gelatin","cake","sprinkles","choco","dessert"]
+};
+
+function countWords(text, words) {
+  let score = 0;
+  for (const word of words) {
+    const safe = word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    if (new RegExp("(^|[^a-z])" + safe + "([^a-z]|$)", "i").test(text)) score++;
+  }
+  return score;
 }
 
-/** Ask Open Food Facts about a barcode. Returns null if it knows nothing. */
+/**
+ * Work out a category.
+ * @param name        the product name (weighted heavily)
+ * @param offCategory the Open Food Facts category string (weak hint)
+ */
+function guessCategory(name, offCategory) {
+  const productName = " " + (name || "").toLowerCase() + " ";
+  const hint        = " " + (offCategory || "").toLowerCase() + " ";
+
+  // Pass one: exact overrides. Name first, then the hint text.
+  for (const rule of CATEGORY_OVERRIDES) if (rule[0].test(productName)) return rule[1];
+  for (const rule of CATEGORY_OVERRIDES) if (rule[0].test(hint))        return rule[1];
+
+  // Pass two: weighted keyword count.
+  let best = "Other", bestScore = 0;
+  for (const category of Object.keys(CATEGORY_WORDS)) {
+    const words = CATEGORY_WORDS[category];
+    const score = countWords(productName, words) * 4 + countWords(hint, words);
+    if (score > bestScore) { bestScore = score; best = category; }
+  }
+  return bestScore > 0 ? best : "Other";
+}
+
+
+/* =====================================================================
+   7. SCANNING
+   ===================================================================== */
+
+let scanner       = null;   // html5-qrcode instance
+let scanRunning   = false;
+let scanArmedAt   = 0;      // ignore anything decoded in the first moment
+let lastCode      = "";     // and ignore the same code twice in a row
+let lastCodeAt    = 0;
+let cameraStarted = false;
+
+function barcodeFormats() {
+  const F = window.Html5QrcodeSupportedFormats;
+  if (!F) return undefined;
+  return [F.EAN_13, F.EAN_8, F.UPC_A, F.UPC_E, F.CODE_128, F.CODE_39, F.ITF];
+}
+
+function scanConfig() {
+  return {
+    fps: 10,
+    // A wide, short box suits grocery barcodes far better than a square.
+    qrbox: (w, h) => ({
+      width:  Math.max(200, Math.floor(Math.min(w, 560) * 0.9)),
+      height: Math.max(120, Math.floor(Math.min(h, 420) * 0.45))
+    }),
+    disableFlip: true,
+    // Android Chrome has a hardware barcode reader; use it when present.
+    experimentalFeatures: { useBarCodeDetectorIfSupported: true }
+    // Deliberately no aspectRatio. iOS Safari rejects that constraint
+    // and then refuses to start the camera at all.
+  };
+}
+
+/**
+ * Starting the camera, with iPhone in mind — this is where it failed before.
+ *  - Safari only reveals camera labels after permission is granted once,
+ *    so ask for a stream first and release it immediately.
+ *  - Safari throws OverconstrainedError on an aspectRatio constraint.
+ *  - facingMode on its own is unreliable, so prefer a camera whose label
+ *    says "back" and start it by device id.
+ * Each attempt is tried in turn until one works.
+ */
+async function startCamera() {
+  let warmup = null;
+  try {
+    warmup = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: { ideal: "environment" } }, audio: false
+    });
+  } finally {
+    if (warmup) warmup.getTracks().forEach((t) => t.stop());
+  }
+
+  let cameras = [];
+  try { cameras = await window.Html5Qrcode.getCameras(); } catch (e) { cameras = []; }
+  const rear = cameras.find((c) => /back|rear|environment|arrière|traseira|trasera/i.test(c.label || ""));
+  const rearId = rear ? rear.id : null;
+  const anyId  = cameras.length ? cameras[cameras.length - 1].id : null;
+
+  const attempts = [];
+  if (rearId) attempts.push(rearId);
+  attempts.push({ facingMode: { exact: "environment" } });
+  attempts.push({ facingMode: "environment" });
+  if (anyId && anyId !== rearId) attempts.push(anyId);
+  attempts.push({ facingMode: "user" });
+
+  let lastError = null;
+  for (const target of attempts) {
+    try {
+      await scanner.start(target, scanConfig(), onScanSuccess, function () {});
+      return;
+    } catch (error) {
+      lastError = error;
+      try { await scanner.stop(); } catch (e) { /* was never running */ }
+    }
+  }
+  throw lastError || new Error("No camera could be started");
+}
+
+async function openScanner() {
+  setNotice($("scan-error"), "");
+  show($("sheet-scan"));
+
+  // A brand new instance and a brand new DOM node every single time.
+  // This is what stops the scanner replaying the previous result the
+  // moment it reopens.
+  await destroyScanner();
+  $("reader-holder").innerHTML = '<div id="reader"></div>';
+  lastCode = ""; lastCodeAt = 0;
+
+  if (!window.Html5Qrcode)
+    return setNotice($("scan-error"), "The scanner did not load. Check your internet connection, or use the photo or manual options below.", "bad");
+  if (!window.isSecureContext)
+    return setNotice($("scan-error"), "Cameras only work on https:// pages. Open the deployed link, not a file on your computer.", "bad");
+
+  try {
+    scanner = new window.Html5Qrcode("reader", { formatsToSupport: barcodeFormats(), verbose: false });
+    scanArmedAt = Date.now();
+    await startCamera();
+    cameraStarted = true;
+    scanRunning = true;
+  } catch (error) {
+    scanRunning = false;
+    const msg = String((error && ((error.name || "") + " " + (error.message || ""))) || error || "").toLowerCase();
+    let text = "The camera would not start. Use the photo or manual option below.";
+    if (msg.includes("permission") || msg.includes("notallowed"))
+      text = "Camera access is blocked. On iPhone: Settings, Safari, Camera, set to Ask or Allow, then reload this page. On Android: tap the padlock in the address bar and allow the camera.";
+    else if (msg.includes("notfound") || msg.includes("devicesnotfound") || msg.includes("no camera"))
+      text = "No camera found. Use the photo or manual option below.";
+    else if (msg.includes("notreadable") || msg.includes("trackstart"))
+      text = "Another app is using the camera. Close it and try again.";
+    else if (msg.includes("overconstrained"))
+      text = "This phone's camera refused those settings. Use the photo option below.";
+    setNotice($("scan-error"), text, "bad");
+  }
+}
+
+/** Tear the scanner down completely, tolerating every failure mode. */
+async function destroyScanner() {
+  const instance = scanner;
+  const wasStarted = cameraStarted;
+  scanner = null;
+  scanRunning = false;
+  cameraStarted = false;
+  if (!instance) return;
+  try { if (wasStarted) await instance.stop(); } catch (e) { /* already stopped */ }
+  try { instance.clear(); } catch (e) { /* nothing to clear */ }
+}
+
+async function closeScanner() {
+  await destroyScanner();
+  $("reader-holder").innerHTML = '<div id="reader"></div>';
+  hide($("sheet-scan"));
+}
+
+function onScanSuccess(decodedText) {
+  const now = Date.now();
+  if (!scanRunning) return;
+  if (now - scanArmedAt < 900) return;                        // camera still settling
+  const code = String(decodedText).trim();
+  if (code === lastCode && now - lastCodeAt < 6000) return;   // same packet, same second
+
+  lastCode = code; lastCodeAt = now;
+  scanRunning = false;
+  if (navigator.vibrate) navigator.vibrate(60);
+
+  // Never stop the camera from inside its own callback; let it finish first.
+  setTimeout(async function () {
+    await closeScanner();
+    await handleBarcode(code);
+  }, 0);
+}
+
+/** Decode a barcode from a photo. The reliable fallback on older iPhones. */
+async function scanFromPhoto(file) {
+  let holder = $("photo-reader");
+  if (!holder) {
+    holder = document.createElement("div");
+    holder.id = "photo-reader";
+    holder.style.cssText = "position:fixed;left:-10000px;top:0;width:320px;";
+    document.body.appendChild(holder);
+  }
+  const reader = new window.Html5Qrcode("photo-reader", { formatsToSupport: barcodeFormats(), verbose: false });
+  try {
+    const text = await reader.scanFile(file, false);
+    return String(text).trim();
+  } finally {
+    try { reader.clear(); } catch (e) { /* ignore */ }
+  }
+}
+
+/** Catalog first, then Open Food Facts, then ask the person. */
+async function handleBarcode(barcode) {
+  openForm(null);
+  $("f-barcode").value = barcode;
+  setNotice($("lookup-note"), "Looking up " + barcode + "…", "info");
+
+  // Do we already have this, unopened, somewhere in the flat?
+  const existing = items.find((it) => it.barcode === barcode && !it.is_used);
+  if (existing) {
+    const where = existing.location ? "It is in " + existing.location + "." : "No place saved.";
+    const when  = existing.expiry_date ? " Expires " + prettyDate(existing.expiry_date) + "." : " No expiry date.";
+    setNotice($("dupe-warning"), "You already have " + existing.name + ". " + where + when, "bad");
+  }
+
+  let found = null, source = "";
+  try {
+    found = await lookupCatalog(barcode);
+    if (found) source = "your saved products";
+  } catch (error) { if (handleAuthLoss(error)) return; }
+
+  if (!found) {
+    found = await lookupOpenFoodFacts(barcode);
+    if (found) source = "Open Food Facts";
+  }
+
+  if (found) {
+    const label = found.brand && !found.name.toLowerCase().includes(found.brand.toLowerCase())
+      ? found.brand + " " + found.name : found.name;
+    $("f-name").value     = label;
+    $("f-quantity").value = found.quantity || "";
+    $("f-category").value = CATEGORIES.includes(found.category)
+      ? found.category : guessCategory(label, found.offCategory);
+    setNotice($("lookup-note"),
+      "Found in " + source + ". Set the expiry date from the pack. If the category is wrong, fix it — it stays fixed for everyone next time.", "info");
+    setTimeout(() => $("f-year").focus(), 120);
+  } else {
+    setNotice($("lookup-note"), "Product not found, please enter the name.", "info");
+    setTimeout(() => $("f-name").focus(), 120);
+  }
+}
+
 async function lookupOpenFoodFacts(barcode) {
-  const url = "https://world.openfoodfacts.org/api/v2/product/" +
-              encodeURIComponent(barcode) +
+  const url = "https://world.openfoodfacts.org/api/v2/product/" + encodeURIComponent(barcode) +
               ".json?fields=product_name,product_name_en,brands,quantity,categories";
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 8000);
@@ -960,10 +1449,12 @@ async function lookupOpenFoodFacts(barcode) {
     const name = (p.product_name || p.product_name_en || "").trim();
     if (!name) return null;
     return {
-      name:     name,
-      brand:    (p.brands || "").split(",")[0].trim(),
-      quantity: (p.quantity || "").trim(),
-      category: guessCategory(p.categories + " " + name)
+      name:        name,
+      brand:       (p.brands || "").split(",")[0].trim(),
+      quantity:    (p.quantity || "").trim(),
+      offCategory: p.categories || "",
+      // Judge on the product name, not the brand, which skews everything.
+      category:    guessCategory(name, p.categories || "")
     };
   } catch (e) {
     return null;                       // offline or slow: manual entry still works
@@ -972,147 +1463,133 @@ async function lookupOpenFoodFacts(barcode) {
   }
 }
 
-function barcodeFormats() {
-  const F = window.Html5QrcodeSupportedFormats;
-  if (!F) return undefined;
-  return [F.EAN_13, F.EAN_8, F.UPC_A, F.UPC_E, F.UPC_EAN_EXTENSION, F.CODE_128, F.CODE_39, F.ITF];
-}
-
-async function openScanner() {
-  setNotice($("scan-error"), "");
-  show($("sheet-scan"));
-
-  if (!window.Html5Qrcode) {
-    setNotice($("scan-error"), "The scanner library did not load. Check your internet connection, or type the barcode instead.", "bad");
-    return;
-  }
-  if (!window.isSecureContext) {
-    setNotice($("scan-error"), "Cameras only work on https:// pages. Open the deployed link, not a local file.", "bad");
-    return;
-  }
-
-  try {
-    scanner = new window.Html5Qrcode("reader", { formatsToSupport: barcodeFormats(), verbose: false });
-    await scanner.start(
-      { facingMode: "environment" },              // rear camera on phones
-      {
-        fps: 12,
-        // A wide, short box suits 1D barcodes much better than a square.
-        qrbox: (w, h) => ({
-          width:  Math.floor(Math.min(w, 520) * 0.86),
-          height: Math.max(110, Math.floor(Math.min(h, 400) * 0.42))
-        }),
-        aspectRatio: 1.4
-      },
-      onScanSuccess,
-      () => { /* every non-matching frame lands here; ignore it */ }
-    );
-    scanning = true;
-  } catch (error) {
-    scanning = false;
-    const msg = String((error && error.message) || error || "").toLowerCase();
-    let text = "The camera would not start. You can still type the barcode below.";
-    if (msg.includes("permission") || msg.includes("notallowed"))
-      text = "Camera access was blocked. Allow the camera for this site in your browser settings, then try again. On iPhone: Settings, Safari, Camera, Allow.";
-    else if (msg.includes("notfound") || msg.includes("no camera") || msg.includes("devices"))
-      text = "No camera found on this device. Type the barcode below instead.";
-    else if (msg.includes("notreadable") || msg.includes("trackstart"))
-      text = "Another app is using the camera. Close it and try again.";
-    setNotice($("scan-error"), text, "bad");
-  }
-}
-
-async function closeScanner() {
-  if (scanner && scanning) {
-    try { await scanner.stop(); } catch (e) { /* already stopped */ }
-  }
-  if (scanner) {
-    try { scanner.clear(); } catch (e) { /* ignore */ }
-  }
-  scanner = null;
-  scanning = false;
-  $("reader").innerHTML = "";
-  hide($("sheet-scan"));
-}
-
-async function onScanSuccess(decodedText) {
-  if (!scanning) return;
-  scanning = false;                     // stop double-firing on the next frame
-  if (navigator.vibrate) navigator.vibrate(60);
-  const barcode = String(decodedText).trim();
-  await closeScanner();
-  await handleBarcode(barcode);
-}
-
-/** Catalog first, then Open Food Facts, then give up gracefully. */
-async function handleBarcode(barcode) {
-  openForm(null);
-  $("f-barcode").value = barcode;
-  setNotice($("lookup-note"), "Looking up " + barcode + "…", "info");
-
-  // 5a. Warn if this exact product is already sitting in the pantry.
-  const existing = items.find((it) => it.barcode === barcode && !it.is_used);
-  if (existing) {
-    const where = existing.location ? "It is in " + existing.location + "." : "No location saved.";
-    const when  = existing.expiry_date ? " Expires " + prettyDate(existing.expiry_date) + "." : " No expiry date.";
-    setNotice($("dupe-warning"), "You already have " + existing.name + ". " + where + when, "bad");
-  }
-
-  let found = null, source = "";
-
-  try {
-    found = await lookupCatalog(barcode);
-    if (found) source = "your saved products";
-  } catch (error) {
-    if (handleAuthLoss(error)) return;
-  }
-
-  if (!found) {
-    found = await lookupOpenFoodFacts(barcode);
-    if (found) source = "Open Food Facts";
-  }
-
-  if (found) {
-    const label = found.brand && !found.name.toLowerCase().includes(found.brand.toLowerCase())
-      ? found.brand + " " + found.name : found.name;
-    $("f-name").value     = label;
-    $("f-quantity").value = found.quantity || "";
-    $("f-category").value = CATEGORIES.includes(found.category) ? found.category : guessCategory(label);
-    setNotice($("lookup-note"), "Found in " + source + ". Now set the expiry date printed on the pack.", "info");
-    // 5b. The one thing a scan can never know is the expiry date, so go there.
-    setTimeout(() => { $("f-expiry").focus(); try { $("f-expiry").showPicker(); } catch (e) {} }, 120);
-  } else {
-    setNotice($("lookup-note"), "Product not found, please enter the name.", "info");
-    setTimeout(() => $("f-name").focus(), 120);
-  }
-}
-
 function wireScanner() {
   $("btn-scan").addEventListener("click", openScanner);
+
   $("scan-manual").addEventListener("click", async () => {
-    const typed = prompt("Type the numbers printed under the barcode:");
+    const typed = await askText({
+      title: "Type the barcode",
+      message: "The row of numbers printed under the bars.",
+      placeholder: "8901234567890", numeric: true, confirmText: "Look it up"
+    });
     if (!typed) return;
     const clean = typed.replace(/\D/g, "");
-    if (clean.length < 6) return alert("That does not look like a barcode.");
+    if (clean.length < 6) return toast("That does not look like a barcode");
     await closeScanner();
     await handleBarcode(clean);
+  });
+
+  $("scan-photo").addEventListener("click", () => $("scan-file").click());
+
+  $("scan-file").addEventListener("change", async (ev) => {
+    const file = ev.target.files && ev.target.files[0];
+    ev.target.value = "";
+    if (!file) return;
+    setNotice($("scan-error"), "Reading the photo…", "info");
+    try {
+      const code = await scanFromPhoto(file);
+      await closeScanner();
+      await handleBarcode(code);
+    } catch (error) {
+      setNotice($("scan-error"), "No barcode found in that photo. Get closer so the barcode fills the frame, hold it straight, and try again.", "bad");
+    }
   });
 }
 
 
 /* =====================================================================
-   6. UI RENDERING
+   8. DATES — the fast expiry picker
+   Shelf-life shortcuts for the common cases, then three small dropdowns.
+   Indian packs often print only a month and year; leave the day blank
+   and the last day of that month is used.
+   ===================================================================== */
+
+function fillDateSelects() {
+  const thisYear = today().getFullYear();
+
+  let dayHtml = '<option value="">Day</option>';
+  for (let d = 1; d <= 31; d++) dayHtml += '<option value="' + d + '">' + d + "</option>";
+  $("f-day").innerHTML = dayHtml;
+
+  let monthHtml = '<option value="">Month</option>';
+  MONTHS.forEach((m, i) => { monthHtml += '<option value="' + (i + 1) + '">' + m + "</option>"; });
+  $("f-month").innerHTML = monthHtml;
+
+  let yearHtml = '<option value="">Year</option>';
+  for (let y = thisYear - 2; y <= thisYear + 10; y++) yearHtml += '<option value="' + y + '">' + y + "</option>";
+  $("f-year").innerHTML = yearHtml;
+}
+
+function daysInMonth(year, month) { return new Date(year, month, 0).getDate(); }
+
+/** Read the three dropdowns, work out the date, update the read-out. */
+function syncDateFromSelects() {
+  const d = Number($("f-day").value), m = Number($("f-month").value), y = Number($("f-year").value);
+  let iso = "";
+
+  if (y && m) {
+    const day = d ? Math.min(d, daysInMonth(y, m)) : daysInMonth(y, m);
+    iso = toISO(new Date(y, m - 1, day));
+  }
+  $("f-expiry").value = iso;
+
+  const out = $("date-readout");
+  if (!iso) {
+    out.textContent = (y || m || d) ? "Pick a month and a year" : "No expiry date";
+    return;
+  }
+  const left = daysUntil(iso);
+  const tail = left < 0 ? "expired " + Math.abs(left) + " days ago"
+             : left === 0 ? "today" : "in " + left + " days";
+  out.textContent = prettyDate(iso) + ", " + tail + (d ? "" : " (end of month)");
+}
+
+function setDateFromISO(iso) {
+  if (!iso) {
+    $("f-day").value = ""; $("f-month").value = ""; $("f-year").value = "";
+  } else {
+    const p = String(iso).slice(0, 10).split("-");
+    $("f-year").value  = String(Number(p[0]));
+    $("f-month").value = String(Number(p[1]));
+    $("f-day").value   = String(Number(p[2]));
+  }
+  syncDateFromSelects();
+}
+
+function wireDatePicker() {
+  fillDateSelects();
+  ["f-day", "f-month", "f-year"].forEach((id) =>
+    $(id).addEventListener("change", syncDateFromSelects));
+
+  document.querySelectorAll("#date-quick [data-add]").forEach((btn) =>
+    btn.addEventListener("click", () => {
+      const d = today();
+      d.setDate(d.getDate() + Number(btn.dataset.add));
+      setDateFromISO(toISO(d));
+      document.querySelectorAll("#date-quick [data-add]")
+        .forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+    }));
+
+  $("date-clear").addEventListener("click", () => {
+    setDateFromISO("");
+    document.querySelectorAll("#date-quick [data-add]")
+      .forEach((b) => b.setAttribute("aria-pressed", "false"));
+  });
+}
+
+
+/* =====================================================================
+   9. UI RENDERING
    ===================================================================== */
 
 function renderSkeleton() {
   $("list").innerHTML = '<li class="skeleton"></li><li class="skeleton"></li><li class="skeleton"></li>';
 }
 
-/** Sort: soonest expiry first, no-date items last, newest first within that. */
+/** Soonest expiry first, no-date items last, newest first within that. */
 function sortItems(list) {
   return list.slice().sort((a, b) => {
-    if (!a.expiry_date && !b.expiry_date)
-      return new Date(b.created_at) - new Date(a.created_at);
+    if (!a.expiry_date && !b.expiry_date) return new Date(b.created_at) - new Date(a.created_at);
     if (!a.expiry_date) return 1;
     if (!b.expiry_date) return -1;
     return a.expiry_date < b.expiry_date ? -1 : a.expiry_date > b.expiry_date ? 1 : 0;
@@ -1120,7 +1597,7 @@ function sortItems(list) {
 }
 
 function visibleItems() {
-  const q = $("search").value.trim().toLowerCase();
+  const q   = $("search").value.trim().toLowerCase();
   const cat = $("filter-category").value;
   const loc = $("filter-location").value;
 
@@ -1129,8 +1606,8 @@ function visibleItems() {
     else if (it.is_used) return false;
 
     if (quickFilter === "expired" && statusOf(it) !== "expired") return false;
-    if (quickFilter === "week"   && !["expired","week"].includes(statusOf(it))) return false;
-    if (quickFilter === "month"  && !["expired","week","month"].includes(statusOf(it))) return false;
+    if (quickFilter === "week"   && ["month","fine","none"].includes(statusOf(it))) return false;
+    if (quickFilter === "month"  && ["fine","none"].includes(statusOf(it))) return false;
     if (quickFilter === "nodate" && it.expiry_date) return false;
 
     if (cat && it.category !== cat) return false;
@@ -1149,25 +1626,23 @@ function renderShelf() {
   const live = items.filter((it) => !it.is_used);
   const counts = { expired:0, week:0, month:0, fine:0, none:0 };
   live.forEach((it) => counts[statusOf(it)]++);
-
   const total = live.length;
-  const order = ["expired", "week", "month", "fine", "none"];
+  const order = ["expired","week","month","fine","none"];
 
   $("shelf-bar").innerHTML = total === 0
     ? '<i style="flex:1;background:var(--grey-bg)"></i>'
-    : order.filter((k) => counts[k] > 0).map((k) =>
-        '<i style="flex:' + counts[k] + ';background:' + STATUS[k].css + '"></i>').join("");
+    : order.filter((k) => counts[k] > 0)
+           .map((k) => '<i style="flex:' + counts[k] + ';background:' + STATUS[k].css + '"></i>').join("");
 
   const cells = [
-    { label: total === 1 ? "item" : "items", value: total, colour: "var(--ink)" },
-    { label: "expired",      value: counts.expired, colour: "var(--red)" },
-    { label: "due in 7 days", value: counts.week,   colour: "var(--orange)" }
+    { label: total === 1 ? "item" : "items", value: total,          colour: "var(--ink)" },
+    { label: "expired",                      value: counts.expired, colour: "var(--red)" },
+    { label: "due in 7 days",                value: counts.week,    colour: "var(--orange)" }
   ];
   $("shelf-legend").innerHTML = cells.map((c) =>
-    '<div><span class="dot" style="background:' + c.colour + '"></span>' +
-    '<b>' + c.value + '</b>' + esc(c.label) + '</div>').join("");
+    '<div><span class="dot" style="background:' + c.colour + '"></span><b>' +
+    c.value + "</b>" + esc(c.label) + "</div>").join("");
 
-  // Banner
   const banner = $("alert-banner");
   const warn = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 9v5"/><circle cx="12" cy="17.5" r="1"/><path d="M10.3 3.9 2.6 17a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>';
   if (counts.expired > 0) {
@@ -1181,27 +1656,38 @@ function renderShelf() {
     banner.innerHTML = warn + "<span>" + counts.week + (counts.week === 1 ? " item needs" : " items need") +
       " using within 7 days. Plan them into this week's cooking.</span>";
     show(banner);
-  } else {
-    hide(banner);
-  }
+  } else hide(banner);
+}
+
+/** Every storage place: the ones set up in settings, plus older free text. */
+function allPlaceNames() {
+  const named = places.map((p) => p.name);
+  const legacy = items.map((i) => i.location).filter(Boolean).filter((n) => !named.includes(n));
+  return named.concat([...new Set(legacy)].sort());
 }
 
 function renderFilters() {
   const cats = [...new Set(items.map((i) => i.category).filter(Boolean))].sort();
-  const locs = [...new Set(items.map((i) => i.location).filter(Boolean))].sort();
-
-  const keepCat = $("filter-category").value;
-  const keepLoc = $("filter-location").value;
+  const locs = allPlaceNames();
+  const keepCat = $("filter-category").value, keepLoc = $("filter-location").value;
 
   $("filter-category").innerHTML = '<option value="">All categories</option>' +
     cats.map((c) => '<option value="' + esc(c) + '">' + esc(c) + "</option>").join("");
-  $("filter-location").innerHTML = '<option value="">All locations</option>' +
+  $("filter-location").innerHTML = '<option value="">All places</option>' +
     locs.map((c) => '<option value="' + esc(c) + '">' + esc(c) + "</option>").join("");
 
   if (cats.includes(keepCat)) $("filter-category").value = keepCat;
   if (locs.includes(keepLoc)) $("filter-location").value = keepLoc;
+}
 
-  $("dl-location").innerHTML = locs.map((c) => '<option value="' + esc(c) + '">').join("");
+/** The "Where is it?" dropdown, with a way to add a place inline. */
+function renderLocationSelect(selected) {
+  const names = allPlaceNames();
+  $("f-location").innerHTML =
+    '<option value="">Not set</option>' +
+    names.map((n) => '<option value="' + esc(n) + '">' + esc(n) + "</option>").join("") +
+    '<option value="__new">+ Add a new place…</option>';
+  if (selected && names.includes(selected)) $("f-location").value = selected;
 }
 
 function itemMarkup(it) {
@@ -1210,8 +1696,7 @@ function itemMarkup(it) {
   if (it.location) tags.push('<span class="tag place">' + esc(it.location) + "</span>");
   if (it.category) tags.push('<span class="tag">' + esc(it.category) + "</span>");
   if (it.quantity) tags.push('<span class="tag">' + esc(it.quantity) + "</span>");
-
-  const date = it.expiry_date ? ' <em>' + esc(prettyDate(it.expiry_date)) + "</em>" : "";
+  const date = it.expiry_date ? " <em>" + esc(prettyDate(it.expiry_date)) + "</em>" : "";
 
   return '<li class="item' + (it.is_used ? " is-used" : "") + '" data-status="' + s + '">' +
     '<div class="item-body">' +
@@ -1223,27 +1708,33 @@ function itemMarkup(it) {
         '<button data-act="used" data-id="' + esc(it.id) + '">' + (it.is_used ? "Put back" : "Used up") + "</button>" +
         '<button data-act="edit" data-id="' + esc(it.id) + '">Edit</button>' +
         '<button data-act="delete" data-id="' + esc(it.id) + '" class="danger">Delete</button>' +
-      "</div>" +
-    "</div></li>";
+      "</div></div></li>";
 }
 
 function emptyState() {
   const searching = $("search").value.trim() || $("filter-category").value ||
                     $("filter-location").value || quickFilter !== "all";
   const box = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V4h8v3"/><path d="M3 12h18"/></svg>';
-
-  if (searching) {
+  if (searching)
     return '<li class="state">' + box + "<h3>Nothing matches</h3>" +
-      "<p>Nothing here fits that search or filter. Which, for a shopping list, is useful to know.</p>" +
+      "<p>Nothing here fits that search or filter. Which, before an online order, is useful to know.</p>" +
       '<button class="btn" id="clear-all-filters">Clear filters</button></li>';
-  }
   return '<li class="state">' + box + "<h3>Your pantry is empty</h3>" +
     "<p>Scan the barcode on a packet, or add something by hand. Two minutes now saves a duplicate order later.</p></li>";
+}
+
+function renderShopBadge() {
+  const n = shoppingRows().length;
+  const badge = $("shop-badge");
+  badge.textContent = n;
+  badge.classList.toggle("hidden", n === 0);
 }
 
 function render() {
   renderShelf();
   renderFilters();
+  renderShopBadge();
+  $("home-label").textContent = home ? home.name : "";
 
   const list = visibleItems();
   $("list").innerHTML = list.length ? list.map(itemMarkup).join("") : emptyState();
@@ -1265,7 +1756,7 @@ function setQuick(name) {
 
 
 /* =====================================================================
-   7. FORM — add, edit, delete
+   10. FORM
    ===================================================================== */
 
 function fillCategorySelect() {
@@ -1283,10 +1774,12 @@ function openForm(item) {
   $("f-name").value     = item ? item.name || "" : "";
   $("f-category").value = item && CATEGORIES.includes(item.category) ? item.category : "Other";
   $("f-quantity").value = item ? item.quantity || "" : "";
-  $("f-location").value = item ? item.location || "" : "";
-  $("f-expiry").value   = item && item.expiry_date ? String(item.expiry_date).slice(0, 10) : "";
   $("f-notes").value    = item ? item.notes || "" : "";
   $("f-barcode").value  = item ? item.barcode || "" : "";
+
+  renderLocationSelect(item ? item.location : "");
+  setDateFromISO(item && item.expiry_date ? String(item.expiry_date).slice(0, 10) : "");
+  document.querySelectorAll("#date-quick [data-add]").forEach((b) => b.setAttribute("aria-pressed", "false"));
 
   setNotice($("form-error"), "");
   setNotice($("dupe-warning"), "");
@@ -1295,10 +1788,7 @@ function openForm(item) {
   if (!item) setTimeout(() => $("f-name").focus(), 100);
 }
 
-function closeForm() {
-  hide($("sheet-form"));
-  editingId = null;
-}
+function closeForm() { hide($("sheet-form")); editingId = null; }
 
 async function submitForm() {
   const name = $("f-name").value.trim();
@@ -1308,11 +1798,13 @@ async function submitForm() {
     return;
   }
 
+  const wasEditing = !!editingId;
+  const chosenPlace = $("f-location").value;
   const payload = {
     name:        name,
     category:    $("f-category").value || null,
     quantity:    $("f-quantity").value.trim() || null,
-    location:    $("f-location").value.trim() || null,
+    location:    (chosenPlace && chosenPlace !== "__new") ? chosenPlace : null,
     expiry_date: $("f-expiry").value || null,
     notes:       $("f-notes").value.trim() || null,
     barcode:     $("f-barcode").value.trim() || null,
@@ -1327,16 +1819,35 @@ async function submitForm() {
 
     const continuous = $("scan-continuous").checked;
     closeForm();
-    await loadItems();
+    await loadEverything();
     toast(name + " saved");
-
-    // "Scan and add another": go straight back to the camera.
     if (continuous && payload.barcode) setTimeout(openScanner, 350);
   } catch (error) {
     if (!handleAuthLoss(error)) setNotice($("form-error"), friendlyError(error), "bad");
   } finally {
     $("f-save").disabled = false;
-    $("f-save").textContent = editingId ? "Save changes" : "Save item";
+    $("f-save").textContent = wasEditing ? "Save changes" : "Save item";
+  }
+}
+
+async function addPlaceInline() {
+  const name = await askText({
+    title: "New storage place",
+    message: "Name it the way you actually say it out loud.",
+    placeholder: "Cabinet 4, top shelf", confirmText: "Add place"
+  });
+  if (!name) { renderLocationSelect(""); return; }
+  try {
+    const { error } = await sb.from("locations")
+      .insert({ household_id: home.id, name: name, sort_order: 50 });
+    if (error) throw error;
+    const { data } = await sb.from("locations").select("*").eq("household_id", home.id).order("sort_order");
+    places = data || [];
+    renderLocationSelect(name);
+    toast(name + " added");
+  } catch (error) {
+    toast(friendlyError(error));
+    renderLocationSelect("");
   }
 }
 
@@ -1351,17 +1862,22 @@ async function onListClick(ev) {
   if (btn.dataset.act === "used") {
     try {
       await setUsed(item.id, !item.is_used);
-      await loadItems();
+      await loadEverything();
       toast(item.is_used ? item.name + " is back in the pantry" : item.name + " moved to the shopping list");
     } catch (error) { if (!handleAuthLoss(error)) toast(friendlyError(error)); }
     return;
   }
 
   if (btn.dataset.act === "delete") {
-    if (!confirm('Delete "' + item.name + '" for good?\n\nIf you just finished it, use "Used up" instead — that keeps it on your shopping list.')) return;
+    const ok = await askConfirm({
+      title: "Delete " + item.name + "?",
+      message: "This removes it completely.\nIf you just finished it, use \"Used up\" instead — that keeps it on your shopping list.",
+      confirmText: "Delete", danger: true
+    });
+    if (!ok) return;
     try {
       await removeItem(item.id);
-      await loadItems();
+      await loadEverything();
       toast("Deleted");
     } catch (error) { if (!handleAuthLoss(error)) toast(friendlyError(error)); }
   }
@@ -1369,14 +1885,16 @@ async function onListClick(ev) {
 
 
 /* =====================================================================
-   7b. SHOPPING LIST — built from used-up and expired items
+   11. SHOPPING LIST
+   Two sources: things anyone typed in, and pantry items that ran out or
+   expired. Both end up on one list you can send to whoever is shopping.
    ===================================================================== */
 
-function shoppingItems() {
+/** Pantry items that are finished or expired, one row per name. */
+function finishedItems() {
   const seen = new Set();
   return items.filter((it) => {
-    const gone = it.is_used || statusOf(it) === "expired";
-    if (!gone) return false;
+    if (!(it.is_used || statusOf(it) === "expired")) return false;
     const key = (it.name || "").toLowerCase();
     if (seen.has(key)) return false;
     seen.add(key);
@@ -1384,27 +1902,219 @@ function shoppingItems() {
   });
 }
 
-function openShopping() {
-  const list = shoppingItems();
-  $("shop-list").innerHTML = list.length
-    ? list.map((it) =>
-        '<div class="shop-line"><p>' + esc(it.name) +
-        (it.quantity ? "<small>" + esc(it.quantity) + "</small>" : "") + "</p>" +
-        '<button class="btn btn-sm" data-restore="' + esc(it.id) + '">Put back</button></div>').join("")
-    : '<p class="hint">Nothing to buy yet. Mark things as used up as you finish them and they will collect here.</p>';
-  show($("sheet-shop"));
+function shoppingRows() {
+  return shopping.filter((s) => !s.is_done).concat(finishedItems());
 }
 
+function renderShopping() {
+  const finished = finishedItems();
+  let html = '<p class="group-title">To buy</p>';
+
+  html += shopping.length
+    ? shopping.map((s) =>
+        '<div class="rowline' + (s.is_done ? " done" : "") + '">' +
+          '<button class="tick' + (s.is_done ? " on" : "") + '" data-tick="' + esc(s.id) + '" aria-label="Tick off">' +
+            (s.is_done ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"/></svg>' : "") +
+          "</button>" +
+          "<p>" + esc(s.name) + (s.quantity ? "<small>" + esc(s.quantity) + "</small>" : "") + "</p>" +
+          '<button class="btn btn-sm" data-shopdel="' + esc(s.id) + '">Remove</button>' +
+        "</div>").join("")
+    : '<p class="hint" style="padding:10px 0">Nothing added yet. Type anything above — milk, coriander, a light bulb.</p>';
+
+  if (finished.length) {
+    html += '<p class="group-title">Finished or expired</p>';
+    html += finished.map((it) =>
+      '<div class="rowline"><p>' + esc(it.name) +
+      (it.quantity ? "<small>" + esc(it.quantity) + "</small>" : "") + "</p>" +
+      '<button class="btn btn-sm" data-restore="' + esc(it.id) + '">Put back</button></div>').join("");
+  }
+
+  $("shop-list").innerHTML = html;
+}
+
+function openShopping() { renderShopping(); show($("sheet-shop")); }
+
 function shoppingText() {
-  const list = shoppingItems();
-  if (!list.length) return "";
-  return "Shopping list\n" + list.map((it) =>
-    "• " + it.name + (it.quantity ? " (" + it.quantity + ")" : "")).join("\n");
+  const rows = shoppingRows();
+  if (!rows.length) return "";
+  return (home ? home.name + " — shopping list" : "Shopping list") + "\n" +
+    rows.map((r) => "• " + r.name + (r.quantity ? " (" + r.quantity + ")" : "")).join("\n");
+}
+
+async function addShoppingItem() {
+  const name = $("shop-new-name").value.trim();
+  if (!name) return;
+  try {
+    const { error } = await sb.from("shopping_items").insert({ household_id: home.id, name: name });
+    if (error) throw error;
+    $("shop-new-name").value = "";
+    await loadEverything();
+    renderShopping();
+  } catch (error) { toast(friendlyError(error)); }
+}
+
+function wireShopping() {
+  $("btn-shopping").addEventListener("click", openShopping);
+  $("shop-add").addEventListener("click", addShoppingItem);
+  $("shop-new-name").addEventListener("keydown", (ev) => {
+    if (ev.key === "Enter") { ev.preventDefault(); addShoppingItem(); }
+  });
+
+  $("shop-list").addEventListener("click", async (ev) => {
+    const tick    = ev.target.closest("[data-tick]");
+    const del     = ev.target.closest("[data-shopdel]");
+    const restore = ev.target.closest("[data-restore]");
+    try {
+      if (tick) {
+        const row = shopping.find((s) => s.id === tick.dataset.tick);
+        await sb.from("shopping_items").update({ is_done: !row.is_done }).eq("id", row.id);
+      } else if (del) {
+        await sb.from("shopping_items").delete().eq("id", del.dataset.shopdel);
+      } else if (restore) {
+        await setUsed(restore.dataset.restore, false);
+        toast("Back in the pantry");
+      } else return;
+      await loadEverything();
+      renderShopping();
+    } catch (error) { toast(friendlyError(error)); }
+  });
+
+  $("shop-copy").addEventListener("click", async () => {
+    const text = shoppingText();
+    if (!text) return toast("Nothing on the list yet");
+    try { await navigator.clipboard.writeText(text); toast("List copied"); }
+    catch (e) { await askText({ title: "Copy this", value: text, confirmText: "Done" }); }
+  });
+
+  $("shop-share").addEventListener("click", () => {
+    const text = shoppingText();
+    if (!text) return toast("Nothing on the list yet");
+    window.open("https://wa.me/?text=" + encodeURIComponent(text), "_blank");
+  });
 }
 
 
 /* =====================================================================
-   8. STARTUP
+   12. SETTINGS
+   ===================================================================== */
+
+function renderSettings() {
+  $("set-home-name").value   = home ? home.name : "";
+  $("set-code").textContent  = home ? home.invite_code : "------";
+  $("set-email").textContent = "Signed in as " + ((session && session.user && session.user.email) || "");
+
+  $("set-members").innerHTML = members.length
+    ? members.map((m) =>
+        '<div class="rowline"><p>' + esc(m.display_name || "Flatmate") +
+        (m.user_id === session.user.id ? "<small>that's you</small>" : "") + "</p></div>").join("")
+    : '<p class="hint">Just you so far.</p>';
+
+  $("set-places").innerHTML = places.length
+    ? places.map((p) =>
+        '<div class="rowline"><p>' + esc(p.name) + "</p>" +
+        '<button class="btn btn-sm" data-placeedit="' + esc(p.id) + '">Rename</button>' +
+        '<button class="btn btn-sm btn-danger" data-placedel="' + esc(p.id) + '">Remove</button></div>').join("")
+    : '<p class="hint">No places yet. Add Cabinet 1, Drawer 2, Fridge and so on.</p>';
+}
+
+function openSettings() { renderSettings(); show($("sheet-settings")); }
+
+async function refreshPlaces() {
+  const { data } = await sb.from("locations").select("*").eq("household_id", home.id).order("sort_order");
+  places = data || [];
+  renderSettings();
+  render();
+}
+
+function wireSettings() {
+  $("btn-settings").addEventListener("click", openSettings);
+
+  $("set-home-save").addEventListener("click", async () => {
+    const name = $("set-home-name").value.trim();
+    if (!name) return toast("Give your home a name");
+    try {
+      const { error } = await sb.from("households").update({ name: name }).eq("id", home.id);
+      if (error) throw error;
+      home.name = name;
+      render();
+      toast("Renamed");
+    } catch (error) { toast(friendlyError(error)); }
+  });
+
+  $("set-copy-code").addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText(home.invite_code); toast("Code copied"); }
+    catch (e) { await askText({ title: "Invite code", value: home.invite_code, confirmText: "Done" }); }
+  });
+
+  $("set-share-code").addEventListener("click", () => {
+    const text = "Join our Gromage pantry (" + home.name + "). Open " +
+                 location.origin + location.pathname + " , sign up, then enter code " + home.invite_code;
+    if (navigator.share) navigator.share({ text: text }).catch(() => {});
+    else window.open("https://wa.me/?text=" + encodeURIComponent(text), "_blank");
+  });
+
+  $("set-add-place").addEventListener("click", async () => {
+    const name = $("set-new-place").value.trim();
+    if (!name) return toast("Type a name first");
+    try {
+      const { error } = await sb.from("locations")
+        .insert({ household_id: home.id, name: name, sort_order: places.length + 10 });
+      if (error) throw error;
+      $("set-new-place").value = "";
+      await refreshPlaces();
+      toast(name + " added");
+    } catch (error) { toast(friendlyError(error)); }
+  });
+
+  $("set-new-place").addEventListener("keydown", (ev) => {
+    if (ev.key === "Enter") { ev.preventDefault(); $("set-add-place").click(); }
+  });
+
+  $("set-places").addEventListener("click", async (ev) => {
+    const renameBtn = ev.target.closest("[data-placeedit]");
+    const delBtn    = ev.target.closest("[data-placedel]");
+
+    if (renameBtn) {
+      const place = places.find((p) => p.id === renameBtn.dataset.placeedit);
+      const name = await askText({ title: "Rename place", value: place.name, confirmText: "Rename" });
+      if (!name || name === place.name) return;
+      try {
+        await sb.from("locations").update({ name: name }).eq("id", place.id);
+        // Move anything that was stored there.
+        await sb.from("pantry_items").update({ location: name })
+          .eq("household_id", home.id).eq("location", place.name);
+        await loadEverything();
+        await refreshPlaces();
+        toast("Renamed");
+      } catch (error) { toast(friendlyError(error)); }
+      return;
+    }
+
+    if (delBtn) {
+      const place = places.find((p) => p.id === delBtn.dataset.placedel);
+      const count = items.filter((i) => i.location === place.name && !i.is_used).length;
+      const ok = await askConfirm({
+        title: "Remove " + place.name + "?",
+        message: count ? count + " item(s) are stored there. They stay in the pantry but lose their place."
+                       : "Nothing is stored there.",
+        confirmText: "Remove", danger: true
+      });
+      if (!ok) return;
+      try {
+        await sb.from("locations").delete().eq("id", place.id);
+        await refreshPlaces();
+        toast("Removed");
+      } catch (error) { toast(friendlyError(error)); }
+    }
+  });
+
+  $("set-signout").addEventListener("click", doSignOut);
+  $("set-reset").addEventListener("click", forgetProject);
+}
+
+
+/* =====================================================================
+   13. STARTUP
    ===================================================================== */
 
 function applyTheme(mode) {
@@ -1416,22 +2126,28 @@ function applyTheme(mode) {
 
 function wireApp() {
   fillCategorySelect();
+  wireDatePicker();
 
   $("btn-add").addEventListener("click", () => openForm(null));
   $("f-save").addEventListener("click", submitForm);
+  $("f-location").addEventListener("change", (ev) => {
+    if (ev.target.value === "__new") addPlaceInline();
+  });
+
   $("f-delete").addEventListener("click", async () => {
     const item = items.find((i) => i.id === editingId);
     if (!item) return;
-    if (!confirm('Delete "' + item.name + '" for good?')) return;
+    const ok = await askConfirm({ title: "Delete " + item.name + "?", confirmText: "Delete", danger: true });
+    if (!ok) return;
     try {
       await removeItem(item.id);
       closeForm();
-      await loadItems();
+      await loadEverything();
       toast("Deleted");
     } catch (error) { if (!handleAuthLoss(error)) setNotice($("form-error"), friendlyError(error), "bad"); }
   });
 
-  $("f-name").addEventListener("keydown", (ev) => { if (ev.key === "Enter") $("f-expiry").focus(); });
+  $("f-name").addEventListener("keydown", (ev) => { if (ev.key === "Enter") $("f-year").focus(); });
 
   $("list").addEventListener("click", onListClick);
   $("search").addEventListener("input", render);
@@ -1442,7 +2158,6 @@ function wireApp() {
   document.querySelectorAll("[data-quick]").forEach((b) =>
     b.addEventListener("click", () => { setQuick(b.dataset.quick); render(); }));
 
-  // Sheets
   document.querySelectorAll("[data-close]").forEach((b) =>
     b.addEventListener("click", () => {
       const id = b.dataset.close;
@@ -1450,76 +2165,67 @@ function wireApp() {
       else if (id === "sheet-form") closeForm();
       else hide($(id));
     }));
-  document.querySelectorAll(".sheet").forEach((s) =>
+
+  document.querySelectorAll(".sheet").forEach((s) => {
+    if (s.id === "dialog") return;
     s.addEventListener("click", (ev) => {
-      if (ev.target !== s) return;                 // only the dark backdrop
+      if (ev.target !== s) return;              // only the dark backdrop
       if (s.id === "sheet-scan") closeScanner();
       else if (s.id === "sheet-form") closeForm();
       else hide(s);
-    }));
+    });
+  });
+
   document.addEventListener("keydown", (ev) => {
     if (ev.key !== "Escape") return;
-    if (!$("sheet-scan").classList.contains("hidden")) closeScanner();
+    if (!$("dialog").classList.contains("hidden")) closeDialog(null);
+    else if (!$("sheet-scan").classList.contains("hidden")) closeScanner();
     else if (!$("sheet-form").classList.contains("hidden")) closeForm();
-    else hide($("sheet-shop"));
+    else { hide($("sheet-shop")); hide($("sheet-settings")); }
   });
 
-  // Shopping list
-  $("btn-shopping").addEventListener("click", openShopping);
-  $("shop-list").addEventListener("click", async (ev) => {
-    const btn = ev.target.closest("[data-restore]");
-    if (!btn) return;
-    try {
-      await setUsed(btn.dataset.restore, false);
-      await loadItems();
-      openShopping();
-      toast("Back in the pantry");
-    } catch (error) { toast(friendlyError(error)); }
-  });
-  $("shop-copy").addEventListener("click", async () => {
-    const text = shoppingText();
-    if (!text) return toast("Nothing on the list yet");
-    try { await navigator.clipboard.writeText(text); toast("List copied"); }
-    catch (e) { prompt("Copy this:", text); }
-  });
-  $("shop-share").addEventListener("click", () => {
-    const text = shoppingText();
-    if (!text) return toast("Nothing on the list yet");
-    window.open("https://wa.me/?text=" + encodeURIComponent(text), "_blank");
-  });
-
-  // Theme
   $("btn-theme").addEventListener("click", () => {
     const now = document.documentElement.getAttribute("data-theme");
     applyTheme(now === "dark" ? "light" : "dark");
   });
 
   wireScanner();
+  wireShopping();
+  wireSettings();
 
-  // Stop the camera if the phone locks or the tab goes to the background.
   document.addEventListener("visibilitychange", () => {
-    if (document.hidden && scanning) closeScanner();
+    if (document.hidden && scanRunning) closeScanner();
   });
-
   window.addEventListener("offline", () => toast("You are offline. Changes will fail until you reconnect."));
 }
 
-async function enterApp() {
-  showScreen("app");
-  await loadItems();
+/** After a successful sign-in: find the home, or ask them to make one. */
+async function afterSignIn() {
+  try {
+    const hasHome = await loadHome();
+    if (!hasHome) {
+      $("home-who").textContent = "signed in as " + ((session.user && session.user.email) || "");
+      setNotice($("home-msg"), "");
+      showScreen("home");
+      return;
+    }
+    showScreen("app");
+    await loadEverything();
+  } catch (error) {
+    showScreen("home");
+    setNotice($("home-msg"), friendlyError(error), "bad");
+  }
 }
 
 async function start() {
-  const saved = localStorage.getItem(THEME_KEY);
-  applyTheme(saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+  const savedTheme = localStorage.getItem(THEME_KEY);
+  applyTheme(savedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
 
+  wireDialog();
   wireSetupScreen();
 
   const config = readConfig();
-  if (!config) {
-    showScreen("setup");
-    return;
-  }
+  if (!config) { showScreen("setup"); return; }
 
   if (!window.supabase) {
     showScreen("auth");
@@ -1529,6 +2235,7 @@ async function start() {
 
   connect(config);
   wireAuthScreen();
+  wireHomeScreen();
   wireApp();
 
   try {
@@ -1536,14 +2243,14 @@ async function start() {
     session = data.session;
   } catch (e) { session = null; }
 
-  // Keep the screens in step with Supabase (magic links, token refresh, sign out).
   sb.auth.onAuthStateChange((event, newSession) => {
     session = newSession;
     if (event === "SIGNED_OUT" || !newSession) { showScreen("auth"); return; }
-    if (event === "SIGNED_IN" && $("screen-app").classList.contains("hidden")) enterApp();
+    if (event === "SIGNED_IN" && $("screen-app").classList.contains("hidden")
+        && $("screen-home").classList.contains("hidden")) afterSignIn();
   });
 
-  if (session) await enterApp();
+  if (session) await afterSignIn();
   else showScreen("auth");
 }
 
