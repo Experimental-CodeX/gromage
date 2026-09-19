@@ -913,6 +913,8 @@ function friendlyError(error) {
     return "That email and password do not match an account.";
   if (low.includes("email not confirmed"))
     return "Check your inbox and confirm your email address first.";
+  if (low.includes("rate limit") || low.includes("too many requests") || low.includes("429"))
+    return "Too many sign-up emails have gone out in the last hour. Wait a while and try again, or ask whoever set this up to switch off email confirmation in Supabase.";
   if (low.includes("user already registered"))
     return "That email already has an account. Sign in instead.";
   if (low.includes("invalid api key") || low.includes("no api key"))
